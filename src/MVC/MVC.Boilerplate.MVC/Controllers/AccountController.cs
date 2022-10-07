@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using MVC.Boilerplate.Models.Account;
+using MVC.Boilerplate.Service;
 
 namespace MVC.Boilerplate.Controllers
 {
@@ -10,9 +12,12 @@ namespace MVC.Boilerplate.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Login(Login loginObj)
+        public async Task<IActionResult> LoginAsync(Login login)
         {
-            ViewBag.Login = loginObj;
+            ViewBag.Login = login;   
+            await AccountService.Login(login);
+
+
             return RedirectToAction("Index","Home");
         }
         public IActionResult Register()
