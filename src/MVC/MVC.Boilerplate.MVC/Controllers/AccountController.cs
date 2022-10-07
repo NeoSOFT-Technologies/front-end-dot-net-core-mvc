@@ -14,8 +14,15 @@ namespace MVC.Boilerplate.Controllers
         [HttpPost]
         public async Task<IActionResult> LoginAsync(Login login)
         {
-            ViewBag.Login = login;   
-            await AccountService.Login(login);
+            ViewBag.Login = login; 
+            try
+            {
+                await AccountService.Login(login);
+            }
+            catch
+            {
+
+            }
 
 
             return RedirectToAction("Index","Home");

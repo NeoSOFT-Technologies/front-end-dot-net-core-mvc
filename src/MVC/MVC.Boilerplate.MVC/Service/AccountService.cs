@@ -9,7 +9,7 @@ namespace MVC.Boilerplate.Service
     {
         public static async Task<Login> Login(Login login)
         {
-            string Baseurl = "http://localhost:54809/api/v1/";
+            string Baseurl = "https://localhost:44330/api/v1/";
             var httpClientHandler = new HttpClientHandler();
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
             {
