@@ -38,6 +38,5 @@ namespace MVC.Boilerplate.Service
                 return login;
             }
         }
-
     }
 }
