@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC.Boilerplate", "src\MVC\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FFDD5600-0654-456B-8C87-6802FA2804E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC.Boilerplate.Application", "src\Core\MVC.Boilerplate.Application\MVC.Boilerplate.Application.csproj", "{D100D550-1A9C-448D-9EF6-C1125DB20EC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC.Boilerplate.Application", "src\Core\MVC.Boilerplate.Application\MVC.Boilerplate.Application.csproj", "{D100D550-1A9C-448D-9EF6-C1125DB20EC5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{63D204EE-ECAE-4580-84B2-850142D2A594}"
 EndProject

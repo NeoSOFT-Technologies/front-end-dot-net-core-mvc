@@ -1,8 +1,11 @@
+using MVC.Boilerplate.Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+IConfiguration Configuration = builder.Configuration;
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddInfrastructureServices(Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
