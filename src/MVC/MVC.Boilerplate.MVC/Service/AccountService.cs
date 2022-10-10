@@ -29,6 +29,8 @@ namespace MVC.Boilerplate.Service
                     var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
                     Res = await client.PostAsync("Account/authenticate", httpContent);
                     Res.EnsureSuccessStatusCode();
+                    var ResJsonString = await Res.Content.ReadAsStringAsync();
+                    login = JsonConvert.DeserializeObject<Login>(ResJsonString);
                 }
                 catch (Exception ex)
                 {
