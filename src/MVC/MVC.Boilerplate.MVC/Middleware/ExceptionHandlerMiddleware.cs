@@ -36,10 +36,9 @@ namespace MVC.Boilerplate.Middleware
 
             switch (exception)
             {
-                //case ValidationException validationException:
-                //    httpStatusCode = HttpStatusCode.BadRequest;
-
-                //    break;
+                case ValidationException validationException:
+                    httpStatusCode = HttpStatusCode.BadRequest;
+                    break;
                 case BadRequestException badRequestException:
                     httpStatusCode = HttpStatusCode.BadRequest;
                     break;

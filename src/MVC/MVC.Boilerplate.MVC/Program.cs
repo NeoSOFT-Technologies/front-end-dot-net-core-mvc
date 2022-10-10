@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Diagnostics;
 using MVC.Boilerplate.Middleware;
+using Serilog;
 using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,11 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(1);
 });
 
+//logger setup
+Log.Logger = new LoggerConfiguration().CreateBootstrapLogger();
+builder.Host.UseSerilog(((ctx, lc) => lc
+.ReadFrom.Configuration(ctx.Configuration)));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,11 +27,10 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
 app.UseCustomExceptionHandler();
 app.UseStaticFiles();
-
+app.UseSerilogRequestLogging();
 app.UseRouting();
 app.UseAuthorization();
 

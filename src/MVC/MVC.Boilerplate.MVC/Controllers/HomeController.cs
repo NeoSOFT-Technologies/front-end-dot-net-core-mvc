@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MVC.Boilerplate.Application.Exceptions;
 using MVC.Boilerplate.Models;
 using System.Diagnostics;
 
@@ -15,7 +16,7 @@ namespace MVC.Boilerplate.Controllers
 
         public IActionResult Index()
         {
-
+            _logger.LogInformation("An example of logging");
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
             return View();
         }
