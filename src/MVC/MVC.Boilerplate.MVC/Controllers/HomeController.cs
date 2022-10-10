@@ -1,57 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVC.Boilerplate.Application.Helper.ApiHelper;
+using MVC.Boilerplate.Application.Exceptions;
 using MVC.Boilerplate.Models;
-using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 
 namespace MVC.Boilerplate.Controllers
 {
-    [ApiController]
-    [Route("Home")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IApiClient<Object> _client;
 
-        public HomeController(ILogger<HomeController> logger, IApiClient<Object> client)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _client = client;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Index()
         {
-            var response = await _client.GetAllAsync("api/users");
-            return View();
-        }
-
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(string id)
-        {
-            var response = await _client.GetByIdAsync($"api/users/{id}");
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Object user)
-        {
-            var response = await _client.PostAsync("api/users",user);
-            return View();
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] Object user)
-        {
-            var response = await _client.PostAsync("api/users/2", user);
-            return View();
-        }
-
-        [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var response = await _client.DeleteAsync($"api/users/{id}");
+            _logger.LogInformation("An example of logging");
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
             return View();
         }
 
