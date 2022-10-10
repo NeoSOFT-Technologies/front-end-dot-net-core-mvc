@@ -38,5 +38,38 @@ namespace MVC.Boilerplate.Service
                 return login;
             }
         }
+
+
+        public static async Task<Register> Register(Register register)
+        {
+            string Baseurl = "https://localhost:44330/api/v1/";
+            var httpClientHandler = new HttpClientHandler();
+            httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+            using (var client = new HttpClient(httpClientHandler) { BaseAddress = new Uri(Baseurl) })
+            {
+                //Passing service base url  
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage Res = new();
+
+                try
+                {
+                    string json = JsonConvert.SerializeObject(register);
+                    var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+                    Res = await client.PostAsync("Account/register", httpContent);
+                    Res.EnsureSuccessStatusCode();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                return register;
+            }
+        }
     }
 }

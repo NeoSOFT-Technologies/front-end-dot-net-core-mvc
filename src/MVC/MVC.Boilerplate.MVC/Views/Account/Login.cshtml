@@ -27,11 +27,11 @@
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
               <h2 class="text-center mb-5">Please sign in</h2>
-              <form asp-action="Login" method="post">
+              <form asp-action="Login" asp-controller="Account" method="post">
                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="form-floating">
-      <input type="email" class="form-control text-lg-start"  asp-for=Email id="Email" placeholder="name@example.com">
+      <input type="email" class="form-control text-lg-start mb-2"  asp-for=Email id="Email" placeholder="name@example.com">
       <label for="Email">Email address</label>
       <span asp-validation-for="Email" class="text-danger"></span>
     </div>
@@ -65,3 +65,9 @@
     
   </body>
 </html>
+
+@section Scripts{
+     @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

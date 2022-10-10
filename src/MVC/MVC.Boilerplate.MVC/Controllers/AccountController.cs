@@ -14,22 +14,30 @@ namespace MVC.Boilerplate.Controllers
         [HttpPost]
         public async Task<IActionResult> LoginAsync(Login login)
         {
-            ViewBag.Login = login; 
-            try
-            {
-                await AccountService.Login(login);
-            }
-            catch
-            {
+            ViewBag.Login = login;
 
-            }
-
-
-            return RedirectToAction("Index","Home");
+            var result = await AccountService.Login(login);
+            return RedirectToAction("Index", "Home");
+           
+            
         }
         public IActionResult Register()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(Register register)
+        {
+            
+
+            if (ModelState.IsValid)
+            { //checking model state
+                await AccountService.Register(register);
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+            
         }
     }
 }
