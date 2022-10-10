@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVC.Boilerplate.Exceptions;
 using MVC.Boilerplate.Models;
 using System.Diagnostics;
 
@@ -16,7 +15,7 @@ namespace MVC.Boilerplate.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("abc");
         }
 
         public IActionResult Privacy()
