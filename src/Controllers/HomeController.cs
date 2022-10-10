@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MVC.Boilerplate.Exceptions;
 using MVC.Boilerplate.Models;
 using System.Diagnostics;
 
