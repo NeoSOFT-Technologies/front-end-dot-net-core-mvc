@@ -15,7 +15,9 @@ namespace MVC.Boilerplate.Controllers
 
         public IActionResult Index()
         {
-            return View("abc");
+
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            return View();
         }
 
         public IActionResult Privacy()
