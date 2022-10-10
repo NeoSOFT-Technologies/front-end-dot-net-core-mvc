@@ -17,8 +17,18 @@ namespace MVC.Boilerplate.Controllers
         public IActionResult Index()
         {
             _logger.LogInformation("An example of logging");
-            ViewBag.UserName = HttpContext.Session.GetString("UserName");
-            return View();
+            var session = HttpContext.Session.GetString("UserName");
+            if (session == null)
+            {
+                return View();
+            }
+            else
+            {
+                ViewBag.UserName = HttpContext.Session.GetString("UserName");
+                return View();
+            }
+
+            
         }
 
         public IActionResult Privacy()

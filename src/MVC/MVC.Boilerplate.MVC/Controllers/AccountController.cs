@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MVC.Boilerplate.Models.Account;
 using MVC.Boilerplate.Service;
@@ -7,6 +8,12 @@ namespace MVC.Boilerplate.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly INotyfService _notyf;
+
+        public AccountController(INotyfService notfy)
+        {
+            _notyf = notfy;
+        }
         public IActionResult Login()
         {
             return View();
@@ -14,6 +21,7 @@ namespace MVC.Boilerplate.Controllers
         [HttpPost]
         public async Task<IActionResult> LoginAsync(Login login)
         {
+
             ViewBag.Login = login;
             if (login.Email == null && login.Password == null)
             {
@@ -21,12 +29,28 @@ namespace MVC.Boilerplate.Controllers
             }
             else
             {
-                var result = await AccountService.Login(login);
-                string Username = result.UserName;
-                HttpContext.Session.SetString("UserName", Username);
+                
+                login = await AccountService.Login(login);
+
+
+                if (login.UserName != null)
+                {
+                    HttpContext.Session.SetString("UserName", login.UserName);
+                    _notyf.Success("Logged In Successfully");
+                }
+                else
+                {
+                    ViewBag.Error = login.Message;
+                    _notyf.Error(login.Message);
+                    return View();
+                }
+               
+
                 return RedirectToAction("Index", "Home");
             }
-            
+
+          
+
         }
 
         [HttpGet]
@@ -34,6 +58,7 @@ namespace MVC.Boilerplate.Controllers
         {
             //HttpContext.Session.Clear();
             HttpContext.Session.Remove("UserName");
+            _notyf.Success("Logged Out Successfully");
             return RedirectToAction("Login", "Account");
         }
 
