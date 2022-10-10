@@ -1,7 +1,13 @@
+using MVC.Boilerplate.Application.Helper.ApiHelper;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+builder.Services.AddScoped(typeof(IApiClient<>), typeof(ApiClient<>));
 
 var app = builder.Build();
 

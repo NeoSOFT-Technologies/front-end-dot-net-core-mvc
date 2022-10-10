@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\MVC.Boilerplate.Application\MVC.Boilerplate.Application.csproj" />
+  </ItemGroup>
+
 </Project>
