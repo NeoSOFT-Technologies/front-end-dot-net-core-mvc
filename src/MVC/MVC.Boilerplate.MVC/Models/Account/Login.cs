@@ -7,7 +7,7 @@ namespace MVC.Boilerplate.Models.Account
         public string Message { get; set; }
         public bool IsAuthenticated { get; set; }
         public string Id { get; set; }
-        
+
         public string UserName { get; set; }
         [Required]
         public string Password { get; set; }
