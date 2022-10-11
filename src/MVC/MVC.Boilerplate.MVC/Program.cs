@@ -7,6 +7,7 @@ using System.Net;
 using MVC.Boilerplate.Application.Helper.ApiHelper;
 
 using MVC.Boilerplate.Application;
+using AspNetCoreHero.ToastNotification.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,7 +42,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 app.UseHttpsRedirection();
-
+app.UseNotyf();
 app.UseStaticFiles();
 app.UseSerilogRequestLogging();
 app.UseSession();

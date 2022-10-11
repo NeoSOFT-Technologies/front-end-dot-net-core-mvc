@@ -63,11 +63,13 @@
    </div>
  </section>
 
-
-    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await Component.InvokeAsync("Notyf") 
   </body>
 </html>
- @await Component.InvokeAsync("Notyf") 
+ 
 @*@section Scripts{
      @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
