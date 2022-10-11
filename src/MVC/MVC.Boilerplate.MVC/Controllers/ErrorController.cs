@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MVC.Boilerplate.Application.Exceptions;
 
 namespace MVC.Boilerplate.Controllers
 {
@@ -46,6 +47,19 @@ namespace MVC.Boilerplate.Controllers
         {
             _logger.LogInformation("Error405 action method initiated");
             return View("Error500");
+        }
+
+        public IActionResult Raise401Ex()
+        {
+            throw new UnauthorizedAccessException();
+        }
+        public IActionResult Raise404Ex()
+        {
+            throw new NotFoundException("Page not found", 404);
+        }
+        public IActionResult Raise500Ex()
+        {
+            throw new Exception();
         }
     }
 }

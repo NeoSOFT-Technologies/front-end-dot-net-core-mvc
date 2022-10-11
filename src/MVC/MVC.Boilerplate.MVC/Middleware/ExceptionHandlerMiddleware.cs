@@ -49,6 +49,9 @@ namespace MVC.Boilerplate.Middleware
                 case ApplicationException appexception:
                     httpStatusCode = HttpStatusCode.BadRequest;
                     break;
+                case UnauthorizedAccessException unAuthException:
+                    httpStatusCode = HttpStatusCode.Unauthorized;
+                    break;
                 case Exception ex:
                     httpStatusCode = HttpStatusCode.BadRequest;
                     break;
