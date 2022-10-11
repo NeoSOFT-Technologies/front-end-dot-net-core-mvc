@@ -22,7 +22,8 @@ namespace MVC.Boilerplate.Middleware
             catch (Exception ex)
             {
                 _logger.LogError(ex, "", null);
-                context.Response.Redirect("ErrorHandler/"+ConvertException(context, ex));
+                var message = ConvertException(context, ex);
+                context.Response.Redirect("/ErrorHandler/"+ message);
             }
         }
 

@@ -8,9 +8,15 @@ namespace MVC.Boilerplate.Controllers
     //[Route("Error")]
     public class ErrorController : Controller
     {
-       [Route("ErrorHandler/{statusCode}")]
+        private readonly ILogger _logger;
+        public ErrorController(ILogger<ErrorController> logger)
+        {
+            _logger = logger;
+        }
+        [Route("ErrorHandler/{statusCode}")]
         public IActionResult HttpStatusCodeHandler(int statusCode)
         {
+            _logger.LogInformation("HttpStatusCode action method initiated");
             var statusCodeResult = HttpContext.Response.StatusCode;
             switch (statusCode)
             {
@@ -28,14 +34,17 @@ namespace MVC.Boilerplate.Controllers
         }
         public IActionResult Error401()
         {
+            _logger.LogInformation("Error401 action method initiated");
             return View("Error401");
         }
         public IActionResult Error404()
         {
+            _logger.LogInformation("Error404 action method initiated");
             return View("Error404");
         }
         public IActionResult Error500()
         {
+            _logger.LogInformation("Error405 action method initiated");
             return View("Error500");
         }
     }

@@ -23,19 +23,14 @@ namespace MVC.Boilerplate.Service
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage Res = new();
 
-                try
-                {
-                    string json = JsonConvert.SerializeObject(login);
-                    var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
-                    Res = await client.PostAsync("Account/authenticate", httpContent);
-                    Res.EnsureSuccessStatusCode();
-                    var ResJsonString = await Res.Content.ReadAsStringAsync();
-                    login = JsonConvert.DeserializeObject<Login>(ResJsonString);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                string json = JsonConvert.SerializeObject(login);
+                var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+                Res = await client.PostAsync("Account/authenticate", httpContent);
+                Res.EnsureSuccessStatusCode();
+                var ResJsonString = await Res.Content.ReadAsStringAsync();
+                login = JsonConvert.DeserializeObject<Login>(ResJsonString);
+
+
 
                 return login;
             }

@@ -1,7 +1,10 @@
+using AspNetCoreHero.ToastNotification;
 using Microsoft.AspNetCore.Diagnostics;
 using MVC.Boilerplate.Middleware;
 using Serilog;
 using System.Net;
+
+using MVC.Boilerplate.Application.Helper.ApiHelper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,10 +15,16 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(1);
 });
 
+builder.Services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
+
 //logger setup
 Log.Logger = new LoggerConfiguration().CreateBootstrapLogger();
 builder.Host.UseSerilog(((ctx, lc) => lc
 .ReadFrom.Configuration(ctx.Configuration)));
+
+
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+builder.Services.AddScoped(typeof(IApiClient<>), typeof(ApiClient<>));
 
 var app = builder.Build();
 
@@ -28,12 +37,13 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 app.UseHttpsRedirection();
-app.UseCustomExceptionHandler();
+
 app.UseStaticFiles();
 app.UseSerilogRequestLogging();
+app.UseSession();
 app.UseRouting();
 app.UseAuthorization();
-
+app.UseCustomExceptionHandler();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
