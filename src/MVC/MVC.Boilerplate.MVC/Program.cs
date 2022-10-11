@@ -6,9 +6,12 @@ using System.Net;
 
 using MVC.Boilerplate.Application.Helper.ApiHelper;
 
+using MVC.Boilerplate.Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+IConfiguration Configuration = builder.Configuration;
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession(options =>
 {
@@ -26,6 +29,7 @@ builder.Host.UseSerilog(((ctx, lc) => lc
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddScoped(typeof(IApiClient<>), typeof(ApiClient<>));
 
+builder.Services.AddInfrastructureServices(Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
