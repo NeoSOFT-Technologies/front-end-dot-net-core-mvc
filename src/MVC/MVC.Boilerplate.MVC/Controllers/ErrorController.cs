@@ -2,15 +2,22 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MVC.Boilerplate.Application.Exceptions;
 
 namespace MVC.Boilerplate.Controllers
 {
     //[Route("Error")]
     public class ErrorController : Controller
     {
-       [Route("ErrorHandler/{statusCode}")]
+        private readonly ILogger _logger;
+        public ErrorController(ILogger<ErrorController> logger)
+        {
+            _logger = logger;
+        }
+        [Route("ErrorHandler/{statusCode}")]
         public IActionResult HttpStatusCodeHandler(int statusCode)
         {
+            _logger.LogInformation("HttpStatusCode action method initiated");
             var statusCodeResult = HttpContext.Response.StatusCode;
             switch (statusCode)
             {
@@ -28,15 +35,31 @@ namespace MVC.Boilerplate.Controllers
         }
         public IActionResult Error401()
         {
+            _logger.LogInformation("Error401 action method initiated");
             return View("Error401");
         }
         public IActionResult Error404()
         {
+            _logger.LogInformation("Error404 action method initiated");
             return View("Error404");
         }
         public IActionResult Error500()
         {
+            _logger.LogInformation("Error405 action method initiated");
             return View("Error500");
+        }
+
+        public IActionResult Raise401Ex()
+        {
+            throw new UnauthorizedAccessException();
+        }
+        public IActionResult Raise404Ex()
+        {
+            throw new NotFoundException("Page not found", 404);
+        }
+        public IActionResult Raise500Ex()
+        {
+            throw new Exception();
         }
     }
 }

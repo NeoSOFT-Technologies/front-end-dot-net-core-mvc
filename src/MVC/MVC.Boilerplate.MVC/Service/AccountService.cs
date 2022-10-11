@@ -7,9 +7,10 @@ namespace MVC.Boilerplate.Service
 {
     public class AccountService
     {
-        public static async Task<Login> Login(Login login)
+        public static async Task<LoginResponse> Login(Login login)
         {
             string Baseurl = "https://localhost:44330/api/v1/";
+            LoginResponse response = new LoginResponse();
             var httpClientHandler = new HttpClientHandler();
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
             {
@@ -22,7 +23,6 @@ namespace MVC.Boilerplate.Service
                 //Define request data format  
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage Res = new();
-
                 try
                 {
                     string json = JsonConvert.SerializeObject(login);
@@ -30,14 +30,14 @@ namespace MVC.Boilerplate.Service
                     Res = await client.PostAsync("Account/authenticate", httpContent);
                     Res.EnsureSuccessStatusCode();
                     var ResJsonString = await Res.Content.ReadAsStringAsync();
-                    login = JsonConvert.DeserializeObject<Login>(ResJsonString);
+                    response = JsonConvert.DeserializeObject<LoginResponse>(ResJsonString);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    response.Message = $"Credentials for ' { login.Email}'  aren't valid.";
                 }
 
-                return login;
+                return response;
             }
         }
 
@@ -67,7 +67,7 @@ namespace MVC.Boilerplate.Service
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    register.Message = "Something";
                 }
 
                 return register;
