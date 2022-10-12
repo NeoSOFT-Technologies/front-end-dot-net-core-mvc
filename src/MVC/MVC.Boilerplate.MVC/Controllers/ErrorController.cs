@@ -51,14 +51,17 @@ namespace MVC.Boilerplate.Controllers
 
         public IActionResult Raise401Ex()
         {
+            _logger.LogInformation("Raise401Ex action initaited and unauthorized exception raised");
             throw new UnauthorizedAccessException();
         }
         public IActionResult Raise404Ex()
         {
+            _logger.LogInformation("Raise404Ex action initaited and not found exception raised");
             throw new NotFoundException("Page not found", 404);
         }
         public IActionResult Raise500Ex()
         {
+            _logger.LogInformation("Raise500Ex action initaited and internal server error exception raised");
             throw new Exception();
         }
     }
