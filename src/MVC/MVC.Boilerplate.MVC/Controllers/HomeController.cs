@@ -2,16 +2,20 @@
 using MVC.Boilerplate.Application.Exceptions;
 using MVC.Boilerplate.Models;
 using System.Diagnostics;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace MVC.Boilerplate.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IWebHostEnvironment webHostEnvironment;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHost)
         {
             _logger = logger;
+            webHostEnvironment = webHost;
         }
 
         public IActionResult Index()
@@ -31,15 +35,6 @@ namespace MVC.Boilerplate.Controllers
             
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        
     }
 }
