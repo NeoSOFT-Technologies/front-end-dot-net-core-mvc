@@ -34,7 +34,7 @@ namespace MVC.Boilerplate.Service
                 }
                 catch (Exception ex)
                 {
-                    response.Message = $"Credentials for ' { login.Email}'  aren't valid.";
+                    response.Message = $"Credentials for  { login.Email}  arent valid.";
                 }
 
                 return response;

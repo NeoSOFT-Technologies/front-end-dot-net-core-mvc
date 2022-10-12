@@ -1,0 +1,60 @@
+﻿@model MVC.Boilerplate.Models.Event.Events
+@{
+    ViewData["Title"] = "Event List";
+}
+<script>
+    function create() {
+        window.location='@Url.Action("CreateEvent", "Event")'
+    }
+</script>
+
+
+<div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li class="breadcrumb-item active"><a href="#">Event List</a></li>
+        </ol>
+    </nav>
+</div>
+<div class="card my-2 border">
+    <div class=" card-header">
+        <Button type="button" class=" btn btn-sm btn-success btn-sm d-flex float-end mb-2" onclick="create()">
+            Create&nbsp;
+            <i class="fa fa-plus mt-1"></i> &nbsp;
+        </Button>
+        <span>
+            <h3>@ViewData["Title"]</h3>
+        </span>
+        <div container card-body>
+            <table id="table_id" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Event Id</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Data)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>@item.Date</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+<script>
+    var table = $('#table_id').DataTable({
+            "lengthMenu": [ [4, 8, 10, -1], [ 4, 8, 10, "All"] ],
+            "pageLength": 4
+        });
+</script>
+        }

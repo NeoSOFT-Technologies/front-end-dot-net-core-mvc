@@ -5,6 +5,9 @@ using Serilog;
 using System.Net;
 
 using MVC.Boilerplate.Application.Helper.ApiHelper;
+using System.Text.Json.Serialization;
+using ServiceStack.Text;
+using Rotativa.AspNetCore;
 
 using MVC.Boilerplate.Application;
 using AspNetCoreHero.ToastNotification.Extensions;
@@ -23,6 +26,7 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
 
+builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 //logger setup
 Log.Logger = new LoggerConfiguration().CreateBootstrapLogger();
 builder.Host.UseSerilog(((ctx, lc) => lc
@@ -44,6 +48,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+// RotativaConfiguration.Setup(app.Environment);
+RotativaConfiguration.Setup((Microsoft.AspNetCore.Hosting.IHostingEnvironment)app.Environment);
 app.UseHttpsRedirection();
 app.UseNotyf();
 app.UseStaticFiles();
