@@ -12,14 +12,15 @@
     <!-- Custom styles for this template -->
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer/">
     <link href="~/css/dashboard.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.css" />
+    <link href="~/css/Dropdown.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.css" />
 
 
 </head>
 <body>
     @*@if (@ViewBag.UserName != null)
-    {*@
+        {*@
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">NeoSOFT Technology</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,17 +77,20 @@
                                 LazyLoading Demo
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                <span data-feather="file-text" class="align-text-bottom"></span>
-                                Global Error Handler
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" style="background-color:transparent; border:none;">
-                                <li class="nav-item "><a class="dropdown-item" asp-controller="Error" asp-action="Raise401Ex"><span data-feather="file" class="align-text-bottom"></span> Error401</a></li>
-                                <li class="nav-item "><a class="dropdown-item" asp-controller="Error" asp-action="Raise404Ex"><span data-feather="file" class="align-text-bottom"></span> Error404 </a></li>
-                                <li class="nav-item "><a class="dropdown-item" asp-controller="Error" asp-action="Raise500Ex"><span data-feather="file" class="align-text-bottom"></span> Error500 </a></li>
-                            </ul>
-                        </li>
+                        <ul class="list-unstyled ps-0">
+                            <li class="mb-1">
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                                    Global Error Handler
+                                </button>
+                                <div class="collapse show" id="home-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a asp-controller="Error" asp-action="Raise401Ex" class="link-dark d-inline-flex text-decoration-none rounded">Error401</a></li>
+                                        <li><a asp-controller="Error" asp-action="Raise404Ex" class="link-dark d-inline-flex text-decoration-none rounded">Error404</a></li>
+                                        <li><a asp-controller="Error" asp-action="Raise500Ex" class="link-dark d-inline-flex text-decoration-none rounded">Error500</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                     </ul>
                 </div>
             </nav>
