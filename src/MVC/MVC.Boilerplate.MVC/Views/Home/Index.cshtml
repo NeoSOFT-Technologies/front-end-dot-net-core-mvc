@@ -1,10 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@model MVC.Boilerplate.Models.FileUpload.FileUploadModel
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
-    @*@(await Component.InvokeAsync("FileUpload", @Model.File))  *@
+    @*@(await Component.InvokeAsync("FileUpload", @Model.File))*@
+    <form enctype="multipart/form-data" asp-action="Index" method="post">
+    <vc:file-upload field-name="@nameof(Model.File)"></vc:file-upload>
+    <button type="submit">Submit</button>
+    </form>
 </div>
