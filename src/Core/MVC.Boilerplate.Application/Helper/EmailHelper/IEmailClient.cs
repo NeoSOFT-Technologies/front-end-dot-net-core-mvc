@@ -1,13 +1,12 @@
-﻿using MVC.Boilerplate.Application.Models.Mail;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVC.Boilerplate.Application.Mail
+namespace MVC.Boilerplate.Application.Helper.EmailHelper
 {
-    public interface IEmailService
+    public interface IEmailClient
     {
         Task<bool> SendEmail(Email email);
     }
