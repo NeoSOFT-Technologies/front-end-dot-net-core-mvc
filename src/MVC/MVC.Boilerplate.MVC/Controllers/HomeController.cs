@@ -17,7 +17,8 @@ namespace MVC.Boilerplate.Controllers
         public IActionResult Index()
         {
             _logger.LogInformation("An example of logging");
-            ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            //ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            ViewBag.UserName = "abc";
             return View();
         }
 
