@@ -1,0 +1,41 @@
+﻿@model string
+
+
+<div>
+<div class= "form-group">
+    @*<label asp-for="@Model" class="control-label"></label>*@
+    <div class="custom-file">
+        <input asp-for="@Model" type="file" name="@Model" class="custom-file-input" id="FL" 
+             onchange="document.getElementById('FileUrl').href = window.URL.createObjectURL(this.files[0])" />
+        @*<label class="custom-file-label" for="FL">Choose File</label>*@
+        
+    </div>
+    <div><a href="" id="FileUrl">Text</a></div>
+
+    @*<div class="input-group mb-3">
+        <label asp-for="@Model" class="control-label"></label>
+         <div class="custom-file">
+  <input type="file" asp-for="@Model" aria-describedby="basic-addon2" id="FL">
+  <span class="input-group-text" for="FL" id="basic-addon2">Choose File</span>*@
+
+
+</div>
+
+</div>
+
+<script type= "text/javascript" on-content-loaded="true">
+    var ImgUploads= document.getElementsByClassName("custom-file-input");
+    console.log(ImgUploads);
+    for(let i=0;i< ImgUploads.lenght; i++){
+        ImgUploads[i].addEventListener("change", function(){
+            var fileName= $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            console.log("fileName", fileName);
+            var attach_id = this.id;
+            var fsize = $('#' + attach_id)[0].files[0].size;
+            const file= Math.round((fsize / 1024));
+            document.getElementById('@Model-size').innerText = 'File Size' + file + 'KB';
+        });
+    }
+
+</script>
