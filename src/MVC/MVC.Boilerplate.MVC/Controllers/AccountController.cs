@@ -30,44 +30,31 @@ namespace MVC.Boilerplate.Controllers
 
             if (ModelState.IsValid)
             {
-                
-
                 LoginResponse loginResponse = await AccountService.Login(login);
-
-                
-
                 if (loginResponse.UserName != null)
                 {
                     HttpContext.Session.SetString("UserName", loginResponse.UserName);
                     _notyf.Success("Logged In Successfully");
+                    // Email Configuration
+                    Email _email = new Email();
+                    _email.To = loginResponse.Email;
+                    _email.Body = "You logged in Successfully";
+                    _email.Subject = "Confirmation Email";
+                    var result = _emailService.SendEmail(_email);
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     ViewBag.Error = loginResponse.Message;
                     _notyf.Error(loginResponse.Message);
                     return View();
-
                 }
-
-                // Email Configuration
-                Email _email = new Email();
-                _email.To = loginResponse.Email;
-                _email.Body = "You logged in Successfully";
-                _email.Subject = "Confirmation Email";
-                var result = _emailService.SendEmail(_email);
-
-
-                return RedirectToAction("Index", "Home");
 
             }
             else
             {
                 return View();
-            }
-            
-
-
-           
+            }           
         }
 
 
@@ -113,9 +100,13 @@ namespace MVC.Boilerplate.Controllers
                     return View();
 
                 }
-               
+
             }
-            return View();
+            else
+            {
+                return View();
+            }
+       
 
         }
     }
