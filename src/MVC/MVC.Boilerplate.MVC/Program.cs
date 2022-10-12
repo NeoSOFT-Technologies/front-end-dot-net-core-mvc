@@ -8,6 +8,8 @@ using MVC.Boilerplate.Application.Helper.ApiHelper;
 
 using MVC.Boilerplate.Application;
 using AspNetCoreHero.ToastNotification.Extensions;
+using MVC.Boilerplate.Service;
+using MVC.Boilerplate.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +31,7 @@ builder.Host.UseSerilog(((ctx, lc) => lc
 
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddScoped(typeof(IApiClient<>), typeof(ApiClient<>));
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 builder.Services.AddInfrastructureServices(Configuration);
 var app = builder.Build();
