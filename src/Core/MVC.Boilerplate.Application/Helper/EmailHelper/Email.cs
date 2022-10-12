@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVC.Boilerplate.Application.Models.Mail
+namespace MVC.Boilerplate.Application.Helper.EmailHelper
 {
     public class EmailSettings
     {
@@ -12,5 +12,12 @@ namespace MVC.Boilerplate.Application.Models.Mail
         public string FromAddress { get; set; }
         public string FromName { get; set; }
         public string Password { get; set; }
+    }
+
+    public class Email
+    {
+        public string To { get; set; }
+        public string Subject { get; set; }
+        public string Body { get; set; }
     }
 }

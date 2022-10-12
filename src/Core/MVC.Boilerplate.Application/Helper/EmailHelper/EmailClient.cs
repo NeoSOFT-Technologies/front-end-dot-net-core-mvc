@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using MVC.Boilerplate.Application.Models.Mail;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
@@ -11,14 +10,15 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVC.Boilerplate.Application.Mail
+namespace MVC.Boilerplate.Application.Helper.EmailHelper
+
 {
-    public class EmailService : IEmailService
+    public class EmailClient : IEmailClient
     {
         public EmailSettings _emailSettings { get; }
-        public ILogger<EmailService> _logger { get; } 
+        public ILogger<EmailClient> _logger { get; } 
 
-        public EmailService(IOptions<EmailSettings> mailSettings, ILogger<EmailService> logger)
+        public EmailClient(IOptions<EmailSettings> mailSettings, ILogger<EmailClient> logger)
         {
             _emailSettings = mailSettings.Value;
             _logger = logger;

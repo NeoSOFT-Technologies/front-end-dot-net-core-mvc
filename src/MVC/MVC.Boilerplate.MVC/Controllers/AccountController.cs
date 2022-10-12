@@ -1,8 +1,7 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using MVC.Boilerplate.Application.Mail;
-using MVC.Boilerplate.Application.Models.Mail;
+using MVC.Boilerplate.Application.Helper.EmailHelper;
 using MVC.Boilerplate.Models.Account;
 using MVC.Boilerplate.Service;
 
@@ -10,10 +9,10 @@ namespace MVC.Boilerplate.Controllers
 {
     public class AccountController : Controller
     {
-        public IEmailService _emailService;
+        public IEmailClient _emailService;
         private readonly INotyfService _notyf;
 
-        public AccountController(IEmailService emailService,INotyfService notfy)
+        public AccountController(IEmailClient emailService,INotyfService notfy)
         {
             _notyf = notfy;
             _emailService = emailService;
