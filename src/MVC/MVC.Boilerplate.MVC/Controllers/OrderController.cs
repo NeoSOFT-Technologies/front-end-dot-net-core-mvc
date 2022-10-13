@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC.Boilerplate.Extensions;
+using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.DataTableProcessing;
 using MVC.Boilerplate.Service;
 
@@ -7,6 +8,12 @@ namespace MVC.Boilerplate.Controllers
 {
     public class OrderController : Controller
     {
+        private readonly IOrderService _orderService;
+
+        public OrderController(IOrderService orderService)
+        {
+            _orderService = orderService;
+    }
         public async Task<IActionResult> GetOrders()
         {
             return View();
@@ -35,7 +42,7 @@ namespace MVC.Boilerplate.Controllers
 
             int page = 1;
             int pageSize = 10;
-            var result = await OrderService.GetKeyList(page, pageSize);
+            var result = await _orderService.GetOrderList(page, pageSize);
             var orderList = result.Data;
 
             if (!string.IsNullOrEmpty(searchBy))
