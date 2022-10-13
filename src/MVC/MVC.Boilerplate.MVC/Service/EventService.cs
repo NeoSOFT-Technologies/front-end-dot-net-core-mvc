@@ -18,20 +18,15 @@ namespace MVC.Boilerplate.Service
             };
             using (var client = new HttpClient(httpClientHandler) { BaseAddress = new Uri(Baseurl) })
             {
-                //Passing service base url  
                 client.DefaultRequestHeaders.Clear();
-                //Define request data format  
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage Res = new();
 
                 try
                 {
-                    //Sending request to find web api REST service resource GetAllEmployees using HttpClient  
                     Res = await client.GetAsync("Events");
-                    //Checking the response is successful or not which is sent using HttpClient  
                     if (Res.IsSuccessStatusCode)
-                    {
-                        //Storing the response details recieved from web api   
+                    { 
                         var EventResponse = Res.Content.ReadAsStringAsync().Result;
 
                         events = JsonConvert.DeserializeObject<Events>(EventResponse);
@@ -54,16 +49,12 @@ namespace MVC.Boilerplate.Service
                 return true;
             };
             using (var client = new HttpClient(httpClientHandler) { BaseAddress = new Uri(Baseurl) })
-            {
-                //Passing service base url  
+            { 
                 client.DefaultRequestHeaders.Clear();
-                //Define request data format  
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage Res = new();
 
                 string json = JsonConvert.SerializeObject(eventt);
-                //string json = JsonSerializer.Serialize(policyObj);
-
                 var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
                 Res = await client.PostAsync("Events", httpContent);
                 Res.EnsureSuccessStatusCode();

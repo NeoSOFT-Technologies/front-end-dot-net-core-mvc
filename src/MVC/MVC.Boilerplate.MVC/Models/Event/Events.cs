@@ -15,6 +15,7 @@ namespace MVC.Boilerplate.Models.Event
     {
         public Guid Id { get; set; }
         [Required]
+        [Display(Name = "Event Name")]
         public string Name { get; set; }
         [Required]
         public DateTime Date { get; set; }

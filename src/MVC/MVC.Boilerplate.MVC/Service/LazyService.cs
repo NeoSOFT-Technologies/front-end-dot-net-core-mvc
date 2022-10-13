@@ -1,12 +1,20 @@
 ﻿using Microsoft.Extensions.Hosting.Internal;
+using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Lazy;
 
 namespace MVC.Boilerplate.Service
 {
-    public static class LazyService
+    public class LazyService:ILazyService
     {
-        public async static Task<List<Person>> PersonList()
+        private readonly ILogger<LazyService> _logger;
+
+        public LazyService(ILogger<LazyService> logger)
         {
+            _logger = logger;
+        }
+        public async Task<List<Person>> PersonList()
+        {
+            _logger.LogInformation("PersonList of Lazy Service executed");
             //Setting path for persons txt file
             string path = (System.IO.Directory.GetCurrentDirectory() + "\\Static\\Persons.txt");
             string path2 = AppDomain.CurrentDomain.BaseDirectory;
@@ -22,6 +30,7 @@ namespace MVC.Boilerplate.Service
                     Email = data[2]
                 }) ;
             }
+            _logger.LogInformation("PersonList of Lazy Service completed");
             return PersonList;
         }
 

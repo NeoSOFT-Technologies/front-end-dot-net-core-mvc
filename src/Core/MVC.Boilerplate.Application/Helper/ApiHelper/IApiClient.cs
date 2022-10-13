@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MVC.Boilerplate.Application.Models;
+using MVC.Boilerplate.Application.Models.Responses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +10,10 @@ namespace MVC.Boilerplate.Application.Helper.ApiHelper
 {
     public interface IApiClient<T>
     {
-        Task<IEnumerable<T>> GetAllAsync(string apiUrl);
-        Task<T> GetByIdAsync(string apiUrl);
-        Task<T> PostAsync(string apiUrl, T entity);
-        Task<T> PutAsync(string apiUrl, T entity);
+        Task<Response<IEnumerable<T>>> GetAllAsync(string apiUrl);
+        Task<Response<T>> GetByIdAsync(string apiUrl);
+        Task<Response<T>> PostAsync<TEntity>(string apiUrl, TEntity entity);
+        Task<Response<T>> PutAsync<TEntity>(string apiUrl, TEntity entity);
         Task<string> DeleteAsync(string apiUrl);
     }
 }
