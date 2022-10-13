@@ -11,7 +11,8 @@ namespace MVC.Boilerplate.Views.Shared.Components.FileUpload
 
         public IViewComponentResult Invoke(string FieldName)
         {
-            return View("FileUpload", FieldName);
+            
+            return View("FileUpload", FieldName );
         }
     }
 }
