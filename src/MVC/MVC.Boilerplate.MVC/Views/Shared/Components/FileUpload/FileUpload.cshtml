@@ -10,7 +10,7 @@
         @*<label class="custom-file-label" for="FL">Choose File</label>*@
         
     </div>
-    <div><a href="" id="FileUrl">Text</a></div>
+    <div><a href="@ViewData["FileUploadPath"]" id="FileUrl">@ViewData["FileUploadName"]</a> <span><i class="btn btn-danger fa fa-trash"></i></span></div>
 
     @*<div class="input-group mb-3">
         <label asp-for="@Model" class="control-label"></label>
@@ -24,6 +24,7 @@
 </div>
 
 <script type= "text/javascript" on-content-loaded="true">
+
     var ImgUploads= document.getElementsByClassName("custom-file-input");
     console.log(ImgUploads);
     for(let i=0;i< ImgUploads.lenght; i++){
