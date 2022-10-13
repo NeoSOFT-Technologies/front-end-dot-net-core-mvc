@@ -36,7 +36,9 @@ builder.Host.UseSerilog(((ctx, lc) => lc
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddScoped(typeof(IApiClient<>), typeof(ApiClient<>));
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ILazyService, LazyService>();
+builder.Services.AddScoped<IEventService, EventService>();
 
 builder.Services.AddInfrastructureServices(Configuration);
 var app = builder.Build();

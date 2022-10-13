@@ -13,6 +13,8 @@ namespace MVC.Boilerplate.Application.Helper.ApiHelper
         Task<Response<IEnumerable<T>>> GetAllAsync(string apiUrl);
         Task<Response<T>> GetByIdAsync(string apiUrl);
         Task<Response<T>> PostAsync<TEntity>(string apiUrl, TEntity entity);
+        // for Account
+        Task<T> PostAuthAsync<TEntity>(string apiUrl, TEntity entity);
         Task<Response<T>> PutAsync<TEntity>(string apiUrl, TEntity entity);
         Task<string> DeleteAsync(string apiUrl);
     }
