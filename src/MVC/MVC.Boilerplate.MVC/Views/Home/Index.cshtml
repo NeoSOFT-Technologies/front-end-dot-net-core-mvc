@@ -7,8 +7,8 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
     @*@(await Component.InvokeAsync("FileUpload", @Model.File))*@
-    <form enctype="multipart/form-data" asp-action="Index" method="post">
+   @* <form enctype="multipart/form-data" method="post">
     <vc:file-upload field-name="@nameof(Model.File)"></vc:file-upload>
     <button type="submit">Submit</button>
-    </form>
+    </form>*@
 </div>

@@ -1,0 +1,13 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MVC.Boilerplate.Models.FileUpload.FileUploadModel
+  @* <h3>index fileupload</h3>*@
+  <div class="text-center">
+ <form enctype="multipart/form-data" method="post">
+    <vc:file-upload field-name="@nameof(Model.File)"></vc:file-upload>
+    <button type="submit">Submit</button>
+    </form>
+    </div>
+
+ 
