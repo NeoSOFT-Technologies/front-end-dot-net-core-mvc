@@ -43,6 +43,19 @@ namespace MVC.Boilerplate.Application.Helper.ApiHelper
             HttpResponseMessage responseMessage = await _httpClient.PostAsync(apiUrl, stringContent);
             return await ValidateResponse(responseMessage);
         }
+         // For Account
+        public async Task<T?> PostAuthAsync<TEntity>(string apiUrl, TEntity entity)
+        {
+            StringContent stringContent = new StringContent(JsonConvert.SerializeObject(entity), System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage responseMessage = await _httpClient.PostAsync(apiUrl, stringContent);
+            //return await ValidateResponse(responseMessage);
+
+            if (responseMessage.IsSuccessStatusCode)
+                return JsonConvert.DeserializeObject<T>(await responseMessage.Content.ReadAsStringAsync());
+
+            return default;
+
+        }
 
         public async Task<Response<T>> PutAsync<TEntity>(string apiUrl, TEntity entity) 
         {
