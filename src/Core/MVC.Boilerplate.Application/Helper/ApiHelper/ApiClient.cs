@@ -22,6 +22,15 @@ namespace MVC.Boilerplate.Application.Helper.ApiHelper
             _httpClient = new HttpClient() { BaseAddress= new Uri(_configuration.GetSection("BaseUrl").Value) };
         }
 
+        public async Task<PagedResponse<IEnumerable<T>>> GetPagedAsync(string apiUrl)
+        {
+            HttpResponseMessage responseMessage = await _httpClient.GetAsync(apiUrl);
+
+            if (!responseMessage.IsSuccessStatusCode)
+                await RaiseException(responseMessage);
+            return JsonConvert.DeserializeObject<PagedResponse<IEnumerable<T>>>(await responseMessage.Content.ReadAsStringAsync());
+        }
+
         public async Task<Response<IEnumerable<T>>> GetAllAsync(string apiUrl)
         {
             HttpResponseMessage responseMessage = await _httpClient.GetAsync(apiUrl);

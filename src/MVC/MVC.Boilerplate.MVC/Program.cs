@@ -38,6 +38,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ILazyService, LazyService>();
 builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 builder.Services.AddInfrastructureServices(Configuration);
 var app = builder.Build();
