@@ -5,11 +5,13 @@ using MVC.Boilerplate.Service;
 
 namespace MVC.Boilerplate.Controllers
 {
+    [Route("[controller]/[action]")]
     public class LazyController : Controller
     {
         private readonly ILogger<LazyController> _logger;
         private readonly ILazyService _lazyService;
         int RecordsPerPage = 20;
+        int RecordSizeForAnimals = 10;
         List<Person> PersonList;
         public LazyController(ILogger<LazyController> logger,ILazyService lazyService)
         {
@@ -17,13 +19,13 @@ namespace MVC.Boilerplate.Controllers
             _lazyService = lazyService;
         }
         [HttpGet]
-        public async Task<IActionResult> LoadList([FromQuery(Name = "pageNum")] int pageNum = 0)
+        public async Task<IActionResult> LoadPersonList([FromQuery(Name = "pageNum")] int pageNum = 0)
         {
             _logger.LogInformation("LoadList Action initiated");
             //Checks for Ajax Request
             if(Request.Headers["X-Requested-With"] == "XMLHttpRequest")
             {
-                var person = await GetPageData(pageNum);
+                var person = await GetPersonPageData(pageNum);
                 _logger.LogInformation("LoadList Action completed");
                 return PartialView("_PersonData", person);
             }
@@ -31,7 +33,7 @@ namespace MVC.Boilerplate.Controllers
             {
 
                 ViewBag.RecordsPerPage = RecordsPerPage;
-                ViewBag.Persons = await GetPageData(pageNum);
+                ViewBag.Persons = await GetPersonPageData(pageNum);
                 ViewBag.TotalPersonCount = PersonList.Count;
                 ViewBag.MaxPageCount = (PersonList.Count / RecordsPerPage);
 
@@ -39,8 +41,17 @@ namespace MVC.Boilerplate.Controllers
                 return View("Index");
             }
         }
+        
+        [HttpGet]
+        public async Task<IActionResult> LoadAnimalList()
+        {
+            // ceil value of totalAnimals divided by RecordSizeForAnimals
+            ViewBag.TableCount = Math.Ceiling(((double)await _lazyService.AnimalsCount() / RecordSizeForAnimals)) ;
+            return View();
+        }
 
-        async Task<List<Person>> GetPageData(int pageNum)
+
+        async Task<List<Person>> GetPersonPageData(int pageNum)
         {
             PersonList = await _lazyService.PersonList();
             //It defines from where in PersonList records should be fetched
