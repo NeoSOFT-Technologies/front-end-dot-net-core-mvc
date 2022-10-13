@@ -1,5 +1,4 @@
 ﻿@model string
-@using MVC.Boilerplate.Models.FileUpload
 <div>
     <div class="form-group">
         @*<label asp-for="@Model" class="control-label"></label>*@
@@ -11,17 +10,20 @@
         @*<div><a href="" id="FileUrl"><h6></h6></a> <span><i class="btn btn-danger fa fa-trash"></i></span></div>*@
 
 
-        <div>
-            @Html.ActionLink($"{@ViewData["File"]}", "DownloadFile", new { fileName = @ViewData["FileUploadName"] })
+        <div class="row">
+            <div class="col-md-9"> @Html.ActionLink($"{@ViewData["File"]}", "DownloadFile", new { fileName = @ViewData["FileUploadName"] }, new {style="text-decoration:none;"})</div>
+            <div class="col-md-3">
+                @if (@ViewData["FileUploadName"] != null)
+                {
+                    <a href="@Url.Action("Delete",  new { fileName = @ViewData["FileUploadName"] })">
+                        <span><i class="btn btn-danger fa fa-trash"></i></span>
+                    </a>
+                }
+            </div>
 
         </div>
         @*<div>@Html.ActionLink("", "Delete", new { fileName = @ViewData["FileUploadName"] })<span><i class="btn btn-danger fa fa-trash"></i></span></div>*@
-        @if (@ViewData["FileUploadName"] != null)
-        {
-            <a href="@Url.Action("Delete",  new { fileName = @ViewData["FileUploadName"] })">
-                <span><i class="btn btn-danger fa fa-trash"></i></span>
-            </a>
-        }ḍ
+
         <p class="text-danger"></p>
     </div>
 
