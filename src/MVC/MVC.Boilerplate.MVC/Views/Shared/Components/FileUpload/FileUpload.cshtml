@@ -10,7 +10,7 @@
         @*<label class="custom-file-label" for="FL">Choose File</label>*@
         
     </div>
-    <div><a href="@ViewData["FileUploadPath"]" id="FileUrl">@ViewData["FileUploadName"]</a> <span><i class="btn btn-danger fa fa-trash"></i></span></div>
+    <div><a href="" id="FileUrl">@*@ViewData["FileUploadName"]*@ <h5></h5></a> <span><i class="btn btn-danger fa fa-trash"></i></span></div>
 
     @*<div class="input-group mb-3">
         <label asp-for="@Model" class="control-label"></label>
@@ -26,12 +26,11 @@
 <script type= "text/javascript" on-content-loaded="true">
 
     var ImgUploads= document.getElementsByClassName("custom-file-input");
-    console.log(ImgUploads);
-    for(let i=0;i< ImgUploads.lenght; i++){
+    for(let i=0;i< ImgUploads.length; i++){
         ImgUploads[i].addEventListener("change", function(){
             var fileName= $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-            console.log("fileName", fileName);
+             $("h5").text(fileName);
             var attach_id = this.id;
             var fsize = $('#' + attach_id)[0].files[0].size;
             const file= Math.round((fsize / 1024));

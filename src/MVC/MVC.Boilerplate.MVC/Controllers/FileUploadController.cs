@@ -16,6 +16,7 @@ namespace MVC.Boilerplate.Controllers
             _logger = logger;
             webHostEnvironment = webHost;
         }
+        [HttpPost]
         public IActionResult Index(FileUploadModel fileUploadModel)
         {
             UploadFile(fileUploadModel);
@@ -38,7 +39,7 @@ namespace MVC.Boilerplate.Controllers
                 {
                     fileUploadModel.File.CopyTo(fileStream);
                 }
-                ViewData["FileUploadPath"] = filePath;
+                    ViewData["FileUploadPath"] = filePath;
                 ViewData["FileUploadName"] = uniqueFileName;
                 
             }
