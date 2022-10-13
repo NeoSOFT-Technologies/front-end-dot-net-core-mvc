@@ -11,13 +11,16 @@ namespace MVC.Boilerplate.Service
     public class EventService : IEventService
     {
         private readonly IApiClient<Events> _client;
-        private readonly IApiClient<Guid> _postClient;
+        private readonly IApiClient<Guid> _eventClient;
+        private readonly IApiClient<GetByIdEvent> _getByIdeventClient;
         public readonly ILogger<EventService> _logger;
-        public EventService(IApiClient<Events> client, IApiClient<Guid> postClient, ILogger<EventService> logger)
+        public EventService(IApiClient<Events> client, IApiClient<GetByIdEvent> getByIdeventClient, IApiClient<Guid> eventClient, ILogger<EventService> logger)
         {
             _client = client;
             _logger = logger;
-            _postClient = postClient;
+            _eventClient = eventClient;
+            _getByIdeventClient = getByIdeventClient;
+            
         }
         public async Task<IEnumerable<Events>> GetEventList()
         {
@@ -30,8 +33,31 @@ namespace MVC.Boilerplate.Service
         public async Task<Guid> CreateEvent(CreateEvent createEvent)
         {
             _logger.LogInformation("CreateEvents Service initiated");
-            var Events = await _postClient.PostAsync("Events", createEvent);
+            var Events = await _eventClient.PostAsync("Events", createEvent);
             _logger.LogInformation("CreateEvents Service conpleted");
+            return Events.Data;
+        }
+        public async Task<GetByIdEvent> GetEventById(string eventId)
+        {
+            _logger.LogInformation("GetEventById Service initiated");
+            var Events = await _getByIdeventClient.GetByIdAsync("Events/" + eventId);
+            _logger.LogInformation("GetEventById Service conpleted");
+            return Events.Data;
+        }
+
+        public async Task<string> DeleteEvent(string eventId)
+        {
+            _logger.LogInformation("DeleteEvent Service initiated");
+            var Events = await _client.DeleteAsync("Events/" + eventId);
+            _logger.LogInformation("DeleteEvent Service conpleted");
+            return Events;
+        }
+
+        public async Task<Guid> UpdateEvent(GetByIdEvent updateEvent)
+        {
+            _logger.LogInformation("DeleteEvent Service initiated");
+            var Events = await _eventClient.PutAsync("Events", updateEvent);
+            _logger.LogInformation("DeleteEvent Service conpleted");
             return Events.Data;
         }
     }

@@ -11,6 +11,7 @@ namespace MVC.Boilerplate.Application.Helper.ApiHelper
     public interface IApiClient<T>
     {
         Task<Response<IEnumerable<T>>> GetAllAsync(string apiUrl);
+        Task<PagedResponse<IEnumerable<T>>> GetPagedAsync(string apiUrl);
         Task<Response<T>> GetByIdAsync(string apiUrl);
         Task<Response<T>> PostAsync<TEntity>(string apiUrl, TEntity entity);
         // for Account
