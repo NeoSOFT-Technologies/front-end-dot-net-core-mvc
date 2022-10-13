@@ -1,67 +1,38 @@
-﻿using MVC.Boilerplate.Models.Event;
+﻿using MVC.Boilerplate.Application.Helper.ApiHelper;
+using MVC.Boilerplate.Interfaces;
+using MVC.Boilerplate.Models.Event.Commands;
+using MVC.Boilerplate.Models.Event.Queries;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
 
 namespace MVC.Boilerplate.Service
 {
-    public class EventService
+    public class EventService : IEventService
     {
-        public static async Task<Events> GetEventList()
+        private readonly IApiClient<Events> _client;
+        private readonly IApiClient<Guid> _postClient;
+        public readonly ILogger<EventService> _logger;
+        public EventService(IApiClient<Events> client, IApiClient<Guid> postClient, ILogger<EventService> logger)
         {
-            string Baseurl = "https://localhost:5000/api/v1/";
-            Events events = new Events();
-            var httpClientHandler = new HttpClientHandler();
-            httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
-            {
-                return true;
-            };
-            using (var client = new HttpClient(httpClientHandler) { BaseAddress = new Uri(Baseurl) })
-            {
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage Res = new();
-
-                try
-                {
-                    Res = await client.GetAsync("Events");
-                    if (Res.IsSuccessStatusCode)
-                    { 
-                        var EventResponse = Res.Content.ReadAsStringAsync().Result;
-
-                        events = JsonConvert.DeserializeObject<Events>(EventResponse);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-                return events;
-            }
+            _client = client;
+            _logger = logger;
+            _postClient = postClient;
         }
-        public static async Task<EventDetails> CreateEvents(EventDetails eventt)
+        public async Task<IEnumerable<Events>> GetEventList()
         {
-            string Baseurl = "https://localhost:5000/api/v1/";
-            var httpClientHandler = new HttpClientHandler();
-            httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
-            {
-                return true;
-            };
-            using (var client = new HttpClient(httpClientHandler) { BaseAddress = new Uri(Baseurl) })
-            { 
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage Res = new();
 
-                string json = JsonConvert.SerializeObject(eventt);
-                var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
-                Res = await client.PostAsync("Events", httpContent);
-                Res.EnsureSuccessStatusCode();
-                var test = await Res.Content.ReadAsStringAsync();
-
-                return eventt;
-            }
+            _logger.LogInformation("GetEventList Service initiated");
+            var Events = await _client.GetAllAsync("Events");
+            _logger.LogInformation("GetEventList Service conpleted");
+            return Events.Data;
+        }
+        public async Task<Guid> CreateEvent(CreateEvent createEvent)
+        {
+            _logger.LogInformation("CreateEvents Service initiated");
+            var Events = await _postClient.PostAsync("Events", createEvent);
+            _logger.LogInformation("CreateEvents Service conpleted");
+            return Events.Data;
         }
     }
 

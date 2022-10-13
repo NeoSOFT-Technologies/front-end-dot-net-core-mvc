@@ -1,21 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MVC.Boilerplate.Models.Event
+namespace MVC.Boilerplate.Models.Event.Commands
 {
-    public class Events
+    public class CreateEvent
     {
-        public List<EventDetails> Data { get; set; }
-    }
-    public class GetAllEventDetails
-    {
-        public List<EventDetails> EventDetailsData { get; set; }
-    }
-
-    public class EventDetails
-    {
-        public Guid Id { get; set; }
-        [Required]
-        [Display(Name = "Event Name")]
         public string Name { get; set; }
         [Required]
         public DateTime Date { get; set; }

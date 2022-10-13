@@ -31,7 +31,7 @@ namespace MVC.Boilerplate.Controllers
                     return RedirectToAction("Error500");
                     break;
             }
-            return View("Error500");
+            return View("Default");
         }
         public IActionResult Error401()
         {
@@ -48,7 +48,11 @@ namespace MVC.Boilerplate.Controllers
             _logger.LogInformation("Error405 action method initiated");
             return View("Error500");
         }
-
+        public IActionResult Default()
+        {
+            _logger.LogInformation("Default action method initiated");
+            return View("Default");
+        }
         public IActionResult Raise401Ex()
         {
             _logger.LogInformation("Raise401Ex action initaited and unauthorized exception raised");
@@ -63,6 +67,11 @@ namespace MVC.Boilerplate.Controllers
         {
             _logger.LogInformation("Raise500Ex action initaited and internal server error exception raised");
             throw new Exception();
+        }
+        public IActionResult DefaultEx()
+        {
+            _logger.LogInformation("DefaultEx action initaited and internal server error exception raised");
+            throw new NotImplementedException();
         }
     }
 }
