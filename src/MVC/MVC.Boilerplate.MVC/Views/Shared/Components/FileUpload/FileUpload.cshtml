@@ -1,45 +1,84 @@
 ﻿@model string
 @using MVC.Boilerplate.Models.FileUpload
 <div>
-<div class= "form-group">
-    @*<label asp-for="@Model" class="control-label"></label>*@
-    <div class="custom-file">
-        <input asp-for="@Model" type="file" name="@Model" class="custom-file-input" id="FL" 
-             onchange="document.getElementById('FileUrl').href = window.URL.createObjectURL(this.files[0])" />
-        @*<label class="custom-file-label" for="FL">Choose File</label>*@
-        
-    </div>
-    @*<div><a href="" id="FileUrl"><h6></h6></a> <span><i class="btn btn-danger fa fa-trash"></i></span></div>*@
+    <div class="form-group">
+        @*<label asp-for="@Model" class="control-label"></label>*@
+        <div class="custom-file">
+            <input asp-for="@Model" type="file" name="@Model" class="custom-file-input" id="FL" onchange="return fileValidation()" />
+            @*<label class="custom-file-label" for="FL">Choose File</label>*@
+
+        </div>
+        @*<div><a href="" id="FileUrl"><h6></h6></a> <span><i class="btn btn-danger fa fa-trash"></i></span></div>*@
 
 
         <div>
-     @Html.ActionLink($"{@ViewData["File"]}", "DownloadFile", new { fileName = @ViewData["FileUploadName"] })
-      
-     </div>
-     @*<div>@Html.ActionLink("", "Delete", new { fileName = @ViewData["FileUploadName"] })<span><i class="btn btn-danger fa fa-trash"></i></span></div>*@
-     @if (@ViewData["FileUploadName"] != null) {
-            <a href="@Url.Action("Delete",  new { fileName = @ViewData["FileUploadName"] })" >
+            @Html.ActionLink($"{@ViewData["File"]}", "DownloadFile", new { fileName = @ViewData["FileUploadName"] })
+
+        </div>
+        @*<div>@Html.ActionLink("", "Delete", new { fileName = @ViewData["FileUploadName"] })<span><i class="btn btn-danger fa fa-trash"></i></span></div>*@
+        @if (@ViewData["FileUploadName"] != null)
+        {
+            <a href="@Url.Action("Delete",  new { fileName = @ViewData["FileUploadName"] })">
                 <span><i class="btn btn-danger fa fa-trash"></i></span>
-     </a>
-     }
+            </a>
+        }ḍ
+        <p class="text-danger"></p>
+    </div>
 
 </div>
 
-</div>
-
-<script type= "text/javascript" on-content-loaded="true">
+<script type="text/javascript" on-content-loaded="true">
 
     var ImgUploads= document.getElementsByClassName("custom-file-input");
     for(let i=0;i< ImgUploads.length; i++){
-        ImgUploads[i].addEventListener("change", function(){
-            var fileName= $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-             $("h6").text(fileName);
-            var attach_id = this.id;
-            var fsize = $('#' + attach_id)[0].files[0].size;
-            const file= Math.round((fsize / 1024));
-            document.getElementById('@Model-size').innerText = 'File Size' + file + 'KB';
-        });
+    ImgUploads[i].addEventListener("change", function(){
+    var x= document.getElementById('FileUrl').href = window.URL.createObjectURL(this.files[0]);
+    $("#FileUrl").prop("href",x)
+
+    var fileName= $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        $("h6").text(fileName);
+        $("p").text();
+    });
+    }
+    function fileValidation() {
+    var fileInput =document.getElementById('FL');
+        let header;
+    var filePath = fileInput.value;
+
+    // Allowing file type
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.csv|\.xls|\.pdf)$/i;
+
+    if (!allowedExtensions.exec(filePath)) {
+        // alert('Invalid file type');
+        header = document.querySelector("p");
+    header.innerText = "Failed to upload !! Please upload csv,jpg, jpeg, png, pdf file only.";
+
+    ;
+        fileInput.value = '';
+
+        // return false;
+    }
+    else{
+        header = document.querySelector("p");
+        header.innerText= "";
+    }
+    if (FL.files.length > 0) {
+    for (const i = 0; i <= FL.files.length - 1; i++) {
+
+        const fsize = FL.files.item(i).size;
+        if (fsize >= 32768) {
+            alert("a-"+fsize+"b-"+file);
+            header.innerText= "Failed to upload !! Max allowed file size is 1Mb";
+                fileInput.value = '';
+
+        }else{
+        header = document.querySelector("p");
+        header.innerText= "";
+    }
+
+    } fileInput.value = '';
+    }
     }
 
 </script>
