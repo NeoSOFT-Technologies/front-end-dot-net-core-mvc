@@ -1,52 +1,26 @@
 ﻿using MVC.Boilerplate.Models.Order;
-using System.Net.Http.Headers;
-using Newtonsoft.Json;
-using MVC.Boilerplate.Models;
+using MVC.Boilerplate.Application.Helper.ApiHelper;
+using MVC.Boilerplate.Interfaces;
+using MVC.Boilerplate.Application.Models.Responses;
 
 namespace MVC.Boilerplate.Service
 {
-    public class OrderService
+    public class OrderService: IOrderService
     {
-        public static async Task<Orders> GetKeyList(int page, int pageSize)
+        private readonly IApiClient<Orders> _client;
+        public readonly ILogger<CategoryService> _logger;
+
+        public OrderService(IApiClient<Orders> client, ILogger<CategoryService> logger)
         {
-            string Baseurl = "https://localhost:44330/api/v1/";
-            Orders orders = new Orders();
-           
-            var httpClientHandler = new HttpClientHandler();
-            httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
-            {
-                return true;
-            };
-            using (var client = new HttpClient(httpClientHandler) { BaseAddress = new Uri(Baseurl) })
-            {
-                //Passing service base url  
-                client.DefaultRequestHeaders.Clear();
-                //Define request data format  
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage Res = new();
-
-                try
-                {
-                    //Sending request to find web api REST service resource GetAllEmployees using HttpClient  
-                    Res = await client.GetAsync("Order?date=2022-02-21&page=" + page + "&size=" + pageSize);
-
-                    //Checking the response is successful or not which is sent using HttpClient  
-                    if (Res.IsSuccessStatusCode)
-                    {
-                        //Storing the response details recieved from web api   
-                        var OrderResponse = Res.Content.ReadAsStringAsync().Result;
-
-                        orders = JsonConvert.DeserializeObject<Orders>(OrderResponse);
-                    }
-                    
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-                return orders;
-            }
+            _client = client;
+            _logger = logger;
+        }
+        public async Task<PagedResponse<IEnumerable<Orders>>> GetOrderList(int page, int pageSize)
+        {
+            _logger.LogInformation("GetOrderList Service initiated.");
+            var orders = await _client.GetPagedAsync("Order?date=2022-02-21&page=" + page + "&size=" + pageSize);
+            _logger.LogInformation("GetOrderList Service completed.");
+            return orders;
         }
     }
 }
