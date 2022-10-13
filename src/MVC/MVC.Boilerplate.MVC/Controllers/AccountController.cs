@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MVC.Boilerplate.Application.Helper.EmailHelper;
+using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Account;
 using MVC.Boilerplate.Service;
 
@@ -11,11 +12,13 @@ namespace MVC.Boilerplate.Controllers
     {
         public IEmailClient _emailService;
         private readonly INotyfService _notyf;
+        private readonly IAccountService _service;
 
-        public AccountController(IEmailClient emailService,INotyfService notfy)
+        public AccountController(IEmailClient emailService,INotyfService notfy, IAccountService service)
         {
             _notyf = notfy;
             _emailService = emailService;
+            _service=service;
         }
 
         public IActionResult Login()
@@ -29,7 +32,7 @@ namespace MVC.Boilerplate.Controllers
 
             if (ModelState.IsValid)
             {
-                LoginResponse loginResponse = await AccountService.Login(login);
+                LoginResponse loginResponse = await _service.Login(login);
                 if (loginResponse.UserName != null)
                 {
                     HttpContext.Session.SetString("UserName", loginResponse.UserName);
@@ -80,7 +83,7 @@ namespace MVC.Boilerplate.Controllers
             if (ModelState.IsValid)
             { //checking model state
                 
-                await AccountService.Register(register);
+               await _service.Register(register);
                 if (register.Message == null)
                 {
                     // Email
@@ -89,13 +92,13 @@ namespace MVC.Boilerplate.Controllers
                     _email.Body = "You Registered Successfully";
                     _email.Subject = "Confirmation Email";
                     var result = _emailService.SendEmail(_email);
-                    _notyf.Error("Registered Successfully");
+                    _notyf.Success("Registered Successfully");
 
                     return RedirectToAction("Login", "Account");
                 }
                 else
                 {
-                    _notyf.Success("Something");
+                    _notyf.Error(register.Message);
                     return View();
 
                 }
