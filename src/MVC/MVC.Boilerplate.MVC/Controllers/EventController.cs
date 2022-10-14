@@ -29,7 +29,8 @@ namespace MVC.Boilerplate.Controllers
         public async Task<IActionResult> CreateEvent(CreateEvent events)
         {
             var result = await _eventService.CreateEvent(events);
-            return View();
+            var eventResult = await _eventService.GetEventList();
+            return View("GetEvents", eventResult);
         }
 
         public async Task<IActionResult> GetEventById(string eventId)
@@ -46,10 +47,9 @@ namespace MVC.Boilerplate.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateEvent(GetByIdEvent updateEvent)
         {
-            //string id = _protector.Unprotect(updateEvent.EventId);
-            //updateEvent.EventId = id;
             var result = await _eventService.UpdateEvent(updateEvent);
-            return View();
+            var updatedResult = await _eventService.GetEventList();
+            return View("GetEvents", updatedResult);
         }
         [HttpDelete]
         public async Task<IActionResult> DeleteEvent(string eventId)
