@@ -30,10 +30,14 @@ namespace MVC.Boilerplate.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateEvent(CreateEvent events)
         {
-            var result = await _eventService.CreateEvent(events);
-            var eventResult = await _eventService.GetEventList();
-            _notyf.Success("Event created successfully");
-            return View("GetEvents", eventResult);
+            if (ModelState.IsValid)
+            {
+                var result = await _eventService.CreateEvent(events);
+                var eventResult = await _eventService.GetEventList();
+                _notyf.Success("Event created successfully");
+                return View("GetEvents", eventResult);
+            }
+            return View();
         }
 
         public async Task<IActionResult> GetEventById(string eventId)
@@ -50,8 +54,16 @@ namespace MVC.Boilerplate.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateEvent(GetByIdEvent updateEvent)
         {
-            var result = await _eventService.UpdateEvent(updateEvent);
-            return View();
+            if(ModelState.IsValid)
+            {
+                var result = await _eventService.UpdateEvent(updateEvent);
+                return View();
+            }
+            else
+            {
+                return View();
+            }
+            
         }
         [HttpDelete]
         public async Task<IActionResult> DeleteEvent(string eventId)
