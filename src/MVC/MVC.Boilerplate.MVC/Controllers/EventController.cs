@@ -57,6 +57,7 @@ namespace MVC.Boilerplate.Controllers
             if(ModelState.IsValid)
             {
                 var result = await _eventService.UpdateEvent(updateEvent);
+                _notyf.Success("Event updated successfully");
                 return View();
             }
             else
