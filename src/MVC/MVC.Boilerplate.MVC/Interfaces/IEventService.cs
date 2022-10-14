@@ -8,6 +8,10 @@ namespace MVC.Boilerplate.Interfaces
     {
         Task<IEnumerable<Events>> GetEventList();
         Task<Guid> CreateEvent(CreateEvent events);
+        Task<GetByIdEvent> GetEventById(string eventId);
+        Task<Guid> UpdateEvent(GetByIdEvent updateEvent);
+
+        Task<string> DeleteEvent(string eventId);
 
     }
 }
