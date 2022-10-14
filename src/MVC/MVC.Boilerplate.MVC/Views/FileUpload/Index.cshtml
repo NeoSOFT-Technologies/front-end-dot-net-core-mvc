@@ -3,6 +3,19 @@
 *@
 @model MVC.Boilerplate.Models.FileUpload.FileUploadModel
   @* <h3>index fileupload</h3>*@
+
+  <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item active"><a>Upload File</a></li>
+        </ol>
+    </nav>
+</div>
+
+  <div class="w-25 p-3 text-center">
+      <h2>File Upload</h2>
+  </div>
   <div class="col-5 card border border-dark rounded m-20 mx-auto"> 
       <div class="card-header">File Upload</div>
       <div class="card-body">
