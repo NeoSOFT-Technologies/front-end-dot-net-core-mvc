@@ -90,23 +90,30 @@
                                 Upload File
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Lazy" asp-action="LoadList">
-                                <span data-feather="loader" class="align-text-bottom"></span>
-                                LazyLoading Demo
-                            </a>
-                        </li>
                         <ul class="list-unstyled ps-0">
                             <li class="mb-1">
-                                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Lazy-collapse" aria-expanded="false">&nbsp;
+                                    <span data-feather="loader" class="align-text-bottom"></span> &emsp; Lazy Loading
+                                </button>
+                                <div class="collapse" id="Lazy-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a asp-controller="Lazy" asp-action="LoadPersonList" class="link-dark d-inline-flex text-decoration-none rounded"><span data-feather="users" class="align-text-left"></span>&emsp; Person (JQuery)</a></li>
+                                        <li><a asp-controller="Lazy" asp-action="LoadAnimalList" class="link-dark d-inline-flex text-decoration-none rounded"><span data-feather="circle" class="align-text-bottom"></span>&emsp; Animal (ViewComponent)</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled ps-0">
+                            <li class="mb-1">
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
                                     Global Error Handler
                                 </button>
-                                <div class="collapse show" id="home-collapse">
+                                <div class="collapse" id="home-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><a asp-controller="Error" asp-action="Raise401Ex" class="link-dark d-inline-flex text-decoration-none rounded">Error401</a></li>
-                                        <li><a asp-controller="Error" asp-action="Raise404Ex" class="link-dark d-inline-flex text-decoration-none rounded">Error404</a></li>
-                                        <li><a asp-controller="Error" asp-action="Raise500Ex" class="link-dark d-inline-flex text-decoration-none rounded">Error500</a></li>
-                                        <li><a asp-controller="Error" asp-action="DefaultEx" class="link-dark d-inline-flex text-decoration-none rounded">Generic Error Page</a></li>
+                                        <li><a asp-controller="Error" asp-action="Raise401Ex" class="link-dark d-inline-flex text-decoration-none rounded"><span data-feather="slash" class="align-text-bottom"></span>&emsp; Error401</a></li>
+                                        <li><a asp-controller="Error" asp-action="Raise404Ex" class="link-dark d-inline-flex text-decoration-none rounded"><span data-feather="slash" class="align-text-bottom"></span>&emsp; Error404</a></li>
+                                        <li><a asp-controller="Error" asp-action="Raise500Ex" class="link-dark d-inline-flex text-decoration-none rounded"><span data-feather="slash" class="align-text-bottom"></span>&emsp; Error500</a></li>
+                                        <li><a asp-controller="Error" asp-action="DefaultEx" class="link-dark d-inline-flex text-decoration-none rounded"><span data-feather="slash" class="align-text-bottom"></span>&emsp; Generic Error Page</a></li>
                                     </ul>
                                 </div>
                             </li>

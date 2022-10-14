@@ -59,8 +59,8 @@ app.UseStaticFiles();
 app.UseSerilogRequestLogging();
 app.UseSession();
 app.UseRouting();
-app.UseAuthorization();
 app.UseCustomExceptionHandler();
+app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
