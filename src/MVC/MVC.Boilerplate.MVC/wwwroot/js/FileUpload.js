@@ -29,6 +29,7 @@ function fileValidation() {
     let header;
     var fileInput = document.getElementById('FL');
     var filePath = fileInput.value;
+   // var x=true;
 
     // Allowing file type
     var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.csv|\.xls|\.xlsx|\.pdf)$/i;
@@ -37,6 +38,7 @@ function fileValidation() {
         header = document.querySelector("#spnFilePath").innerText = "";
         header = document.querySelector("#spnFileName");
         header.innerText = "Failed to upload !! Please upload csv,jpg, jpeg, png, pdf file only.";
+       // x = false;
         fileInput.value = '';
     }
     else {
@@ -50,6 +52,7 @@ function fileValidation() {
             if (fsize >= 32768) {
                 header = document.querySelector("#spnFilePath").innerText ="";
                 header = document.querySelector("#spnFileName").innerText = "Failed to upload !! Max allowed file size is 32kb";
+           //     x = false;
                 fileInput.value = '';
             } else {
                 header = document.querySelector("#spnFileName");
@@ -57,4 +60,5 @@ function fileValidation() {
             }
         } fileInput.value = '';
     }
+   // return x;
 }
