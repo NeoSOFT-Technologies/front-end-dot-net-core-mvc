@@ -17,7 +17,7 @@ namespace MVC.Boilerplate.Component
         {
             List<Animal> animalList = await _lazyService.AnimalList();
             animalList = animalList.Skip(componentNum * recordSize).Take(recordSize).ToList();
-            //Thread.Sleep(1000);
+            //Thread.Sleep((new Random()).Next(1, 3));
             return View("AnimalList",animalList);
         }
     }
