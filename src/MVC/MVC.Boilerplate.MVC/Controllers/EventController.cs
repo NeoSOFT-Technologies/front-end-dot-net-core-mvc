@@ -39,9 +39,9 @@ namespace MVC.Boilerplate.Controllers
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> UpdateEvent([FromQuery(Name = "eventId")] string eventId)
+        public async Task<IActionResult> UpdateEvent(string id)
         {
-            var result = await _eventService.GetEventById(eventId);
+            var result = await _eventService.GetEventById(id);
             return View(result);
         }
         [HttpPost]
