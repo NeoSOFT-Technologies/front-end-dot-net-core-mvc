@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Mvc;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Event.Commands;
 using MVC.Boilerplate.Models.Event.Queries;
@@ -8,11 +9,12 @@ namespace MVC.Boilerplate.Controllers
 {
     public class EventController : Controller
     {
-        
+        private readonly INotyfService _notyf;
         private readonly IEventService _eventService;
-        public EventController(IEventService eventService)
+        public EventController(IEventService eventService, INotyfService notyf)
         {
             _eventService = eventService;
+            _notyf = notyf;
            
         }
         public async Task<IActionResult> GetEvents()
@@ -30,6 +32,7 @@ namespace MVC.Boilerplate.Controllers
         {
             var result = await _eventService.CreateEvent(events);
             var eventResult = await _eventService.GetEventList();
+            _notyf.Success("Event created successfully");
             return View("GetEvents", eventResult);
         }
 
