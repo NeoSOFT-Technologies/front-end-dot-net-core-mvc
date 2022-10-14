@@ -23,7 +23,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Date</th>
+                        <th>Name</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,11 +40,22 @@
     </div>
 </div>
 
+<div>
+     <button type="button"
+            class=" btn btn-sm btn-primary btn-sm d-flex float-end mb-2" onclick="generatePDF()">
+        Generate PDF 
+    </button>
+</div>
+
 @section Scripts{
 <script>
     var table = $('#table_id').DataTable({
             "lengthMenu": [ [2, 5, 10, -1], [ 2, 5, 10, "All"] ],
             "pageLength": 5
         });
+
+        function generatePDF() {
+       window.open('@Url.Action("GenerateAllCategoriesPdf", "Category")');
+    }
 </script>
         }

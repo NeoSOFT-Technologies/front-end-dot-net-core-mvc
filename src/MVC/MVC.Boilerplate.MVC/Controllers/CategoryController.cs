@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Category.Commands;
+using MVC.Boilerplate.Models.Category.Queries;
+using Rotativa.AspNetCore;
 
 namespace MVC.Boilerplate.Controllers
 {
@@ -51,6 +53,14 @@ namespace MVC.Boilerplate.Controllers
             _notyf.Success("Category Created Successfully");
             _logger.LogInformation("CreateCategory Action initiated");
             return RedirectToAction("Index");
+        }
+
+
+        [HttpGet("GenerateAllCategoriesPdf")]
+        public async Task<IActionResult> GenerateAllCategoriesPdf()
+        {
+            var categories =  await _categoryService.GetAllCategories();
+            return new ViewAsPdf(categories);
         }
     }
 }
