@@ -4,6 +4,7 @@ namespace MVC.Boilerplate.Models.Event.Commands
 {
     public class CreateEvent
     {
+        [Required]
         public string Name { get; set; }
         [Required]
         public DateTime Date { get; set; }
