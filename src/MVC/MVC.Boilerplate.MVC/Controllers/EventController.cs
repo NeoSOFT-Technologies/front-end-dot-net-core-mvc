@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.DataProtection;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Event.Commands;
 using MVC.Boilerplate.Models.Event.Queries;
@@ -9,12 +8,12 @@ namespace MVC.Boilerplate.Controllers
 {
     public class EventController : Controller
     {
-        private readonly IDataProtector _protector;
+        
         private readonly IEventService _eventService;
-        public EventController(IEventService eventService, IDataProtectionProvider provider)
+        public EventController(IEventService eventService)
         {
             _eventService = eventService;
-            _protector = provider.CreateProtector("");
+           
         }
         public async Task<IActionResult> GetEvents()
         {
