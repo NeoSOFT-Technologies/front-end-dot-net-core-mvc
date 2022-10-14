@@ -51,8 +51,7 @@ namespace MVC.Boilerplate.Controllers
         public async Task<IActionResult> UpdateEvent(GetByIdEvent updateEvent)
         {
             var result = await _eventService.UpdateEvent(updateEvent);
-            var updatedResult = await _eventService.GetEventList();
-            return View("GetEvents", updatedResult);
+            return View();
         }
         [HttpDelete]
         public async Task<IActionResult> DeleteEvent(string eventId)
