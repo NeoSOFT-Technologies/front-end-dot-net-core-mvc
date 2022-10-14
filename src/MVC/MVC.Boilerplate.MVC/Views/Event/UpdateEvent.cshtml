@@ -8,7 +8,7 @@
         <form asp-controller="Event" asp-action="UpdateEvent">
              <div class="form-group ">
                 <label asp-for="EventId" class="control-label fw-bold text-dark">EventId</label>
-                <input type="text" class="form-control" asp-for="EventId" placeholder="Event Id">
+                <input type="text" class="form-control" hidden asp-for="EventId" placeholder="Event Id">
                 <span asp-validation-for="EventId" class="text-danger"></span>
             </div>
             <div class="form-group ">

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.DataProtection;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Event.Commands;
@@ -9,12 +9,13 @@ namespace MVC.Boilerplate.Controllers
 {
     public class EventController : Controller
     {
-        private readonly IDataProtector _protector;
+        private readonly INotyfService _notyf;
         private readonly IEventService _eventService;
-        public EventController(IEventService eventService, IDataProtectionProvider provider)
+        public EventController(IEventService eventService, INotyfService notyf)
         {
             _eventService = eventService;
-            _protector = provider.CreateProtector("");
+            _notyf = notyf;
+           
         }
         public async Task<IActionResult> GetEvents()
         {
@@ -29,7 +30,13 @@ namespace MVC.Boilerplate.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateEvent(CreateEvent events)
         {
-            var result = await _eventService.CreateEvent(events);
+            if (ModelState.IsValid)
+            {
+                var result = await _eventService.CreateEvent(events);
+                var eventResult = await _eventService.GetEventList();
+                _notyf.Success("Event created successfully");
+                return View("GetEvents", eventResult);
+            }
             return View();
         }
 
@@ -39,18 +46,25 @@ namespace MVC.Boilerplate.Controllers
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> UpdateEvent([FromQuery(Name = "eventId")] string eventId)
+        public async Task<IActionResult> UpdateEvent(string id)
         {
-            var result = await _eventService.GetEventById(eventId);
+            var result = await _eventService.GetEventById(id);
             return View(result);
         }
         [HttpPost]
         public async Task<IActionResult> UpdateEvent(GetByIdEvent updateEvent)
         {
-            //string id = _protector.Unprotect(updateEvent.EventId);
-            //updateEvent.EventId = id;
-            var result = await _eventService.UpdateEvent(updateEvent);
-            return View();
+            if(ModelState.IsValid)
+            {
+                var result = await _eventService.UpdateEvent(updateEvent);
+                _notyf.Success("Event updated successfully");
+                return View();
+            }
+            else
+            {
+                return View();
+            }
+            
         }
         [HttpDelete]
         public async Task<IActionResult> DeleteEvent(string eventId)

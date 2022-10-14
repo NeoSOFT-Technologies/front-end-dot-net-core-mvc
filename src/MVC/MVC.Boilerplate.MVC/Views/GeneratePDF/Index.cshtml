@@ -8,7 +8,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
-        <li class="breadcrumb-item active"><a href="#">Generate PDF</a></li>
+        <li class="breadcrumb-item active"><a>Generate PDF</a></li>
         </ol>
     </nav>
 </div>
@@ -119,6 +119,6 @@
 
 <script>
     function generatePDF() {
-        window.location='@Url.Action("GeneratePdf", "GeneratePDF")'
+        window.open('@Url.Action("GeneratePdf", "GeneratePDF")');
     }
 </script>

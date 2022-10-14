@@ -3,9 +3,11 @@
     <div class="form-group">
         @*<label asp-for="@Model" class="control-label"></label>*@
         <div class="custom-file">
-            <input asp-for="@Model" type="file" name="@Model" class="custom-file-input" id="FL" onchange="return fileValidation()" />
+            <input asp-for="@Model" type="file" name="@Model" class="custom-file-input" id="FL" accept="image/*,.pdf,.csv,.xls,.xlsx" onchange="return fileValidation();" style="display: none" />
             @*<label class="custom-file-label" for="FL">Choose File</label>*@
-
+            <label id="btnSubmit" class="btn btn-large" value="Upload"><i class="fa fa-upload"></i></label>
+            <span id="spnFilePath"></span>
+            <p id ="spnFileName" class="text-danger"></p>
         </div>
         @*<div><a href="" id="FileUrl"><h6></h6></a> <span><i class="btn btn-danger fa fa-trash"></i></span></div>*@
 
@@ -20,15 +22,10 @@
                     </a>
                 }
             </div>
-
         </div>
         @*<div>@Html.ActionLink("", "Delete", new { fileName = @ViewData["FileUploadName"] })<span><i class="btn btn-danger fa fa-trash"></i></span></div>*@
-
-        <p class="text-danger"></p>
-    </div>
-
-</div>
+ </div>
+ </div>
 
 
     <script src="~/js/FileUpload.js" type="text/javascript" on-content-loaded="true"></script>
-

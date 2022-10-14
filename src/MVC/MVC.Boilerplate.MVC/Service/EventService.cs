@@ -55,9 +55,9 @@ namespace MVC.Boilerplate.Service
 
         public async Task<Guid> UpdateEvent(GetByIdEvent updateEvent)
         {
-            _logger.LogInformation("DeleteEvent Service initiated");
+            _logger.LogInformation("UpdateEvent Service initiated");
             var Events = await _eventClient.PutAsync("Events", updateEvent);
-            _logger.LogInformation("DeleteEvent Service conpleted");
+            _logger.LogInformation("UpdateEvent Service conpleted");
             return Events.Data;
         }
     }

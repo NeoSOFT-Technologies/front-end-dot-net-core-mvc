@@ -46,14 +46,14 @@ namespace MVC.Boilerplate.Middleware
                 case NotFoundException notFoundException:
                     httpStatusCode = HttpStatusCode.NotFound;
                     break;
-                case ApplicationException appexception:
-                    httpStatusCode = HttpStatusCode.BadRequest;
+                case NotImplementedException appexception:
+                    httpStatusCode = HttpStatusCode.NotImplemented;
                     break;
                 case UnauthorizedAccessException unAuthException:
                     httpStatusCode = HttpStatusCode.Unauthorized;
                     break;
                 case Exception ex:
-                    httpStatusCode = HttpStatusCode.BadRequest;
+                    httpStatusCode = HttpStatusCode.InternalServerError;
                     break;
             }
             return (int)httpStatusCode;
