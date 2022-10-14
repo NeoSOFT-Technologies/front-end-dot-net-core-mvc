@@ -47,7 +47,7 @@ namespace MVC.Boilerplate.Controllers
                 }
                 else
                 {
-                    ViewBag.Error = loginResponse.Message;
+                   
                     _notyf.Error(loginResponse.Message);
                     return View();
                 }
