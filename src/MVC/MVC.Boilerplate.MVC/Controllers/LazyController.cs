@@ -50,6 +50,12 @@ namespace MVC.Boilerplate.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult AnimalViewComponent(int componentNum)
+        {
+            return ViewComponent("AnimalList", new { componentNum = componentNum });
+        }
+
 
         async Task<List<Person>> GetPersonPageData(int pageNum)
         {
