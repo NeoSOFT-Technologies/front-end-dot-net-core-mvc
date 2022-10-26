@@ -41,7 +41,13 @@ namespace MVC.Boilerplate.Controllers
                 _notyf.Success("Event created successfully");
                 return View("GetEvents", eventResult);
             }
-            return View();
+            else
+            {
+                var categories = await _categoryService.GetAllCategories();
+                ViewBag.categoryId = categories;
+                return View();
+            }
+            
         }
 
         public async Task<IActionResult> GetEventById(string eventId)
@@ -68,6 +74,8 @@ namespace MVC.Boilerplate.Controllers
             }
             else
             {
+                var categories = await _categoryService.GetAllCategories();
+                ViewBag.categoryId = categories;
                 return View();
             }
             
