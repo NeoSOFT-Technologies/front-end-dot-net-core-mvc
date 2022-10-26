@@ -1,10 +1,7 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@model MVC.Boilerplate.Models.FileUpload.FileUploadModel
+﻿@model MVC.Boilerplate.Models.FileUpload.FileUploadModel
   @* <h3>index fileupload</h3>*@
 
-  <div>
+  <div mt-3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
@@ -21,9 +18,11 @@
       <div class="card-body">
  <form enctype="multipart/form-data" method="post">
     <vc:file-upload field-name="@nameof(Model.File)"></vc:file-upload>
-    <button type="submit">Submit</button>
+    <button type="submit" id="btnUpload" disabled>Upload</button>
+    <div class="text-primary font-weight-bold mt-2">Note: Please select the file of size 32Kb and of type .jpg,.jpeg,.png,.csv,.xls,.xlsx,.pdf </div>
     </form>
     </div>
     </div>
 
  
+  <script src="~/js/FileUpload.js" type="text/javascript" on-content-loaded="true"></script>

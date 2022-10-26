@@ -8,10 +8,10 @@ namespace MVC.Boilerplate.Application.Helper.EmailHelper
 {
     public class EmailSettings
     {
-        // public string ApiKey { get; set; }
+        public string ApiKey { get; set; }
         public string FromAddress { get; set; }
         public string FromName { get; set; }
-        public string Password { get; set; }
+       //public string Password { get; set; }
     }
 
     public class Email
