@@ -91,7 +91,8 @@
                             success: ()=>
                             {
                                 isSuccess = true;
-                                //toastNotifySuccess('Key Deleted Successfully','');
+                                //location.reload();
+                                toastNotifySuccess('Event Deleted Successfully','');
                             },
                             complete:()=>{
                                 if(isSuccess)$("#deleteEvent"+id).parent().parent().hide();

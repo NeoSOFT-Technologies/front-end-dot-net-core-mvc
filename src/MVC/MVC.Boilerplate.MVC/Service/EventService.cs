@@ -1,4 +1,5 @@
-﻿using MVC.Boilerplate.Application.Helper.ApiHelper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using MVC.Boilerplate.Application.Helper.ApiHelper;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Event.Commands;
 using MVC.Boilerplate.Models.Event.Queries;

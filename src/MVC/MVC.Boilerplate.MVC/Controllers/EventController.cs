@@ -9,11 +9,13 @@ namespace MVC.Boilerplate.Controllers
 {
     public class EventController : Controller
     {
+        private readonly ICategoryService _categoryService;
         private readonly INotyfService _notyf;
         private readonly IEventService _eventService;
-        public EventController(IEventService eventService, INotyfService notyf)
+        public EventController(IEventService eventService, INotyfService notyf, ICategoryService categoryService)
         {
             _eventService = eventService;
+            _categoryService = categoryService;
             _notyf = notyf;
            
         }
@@ -23,8 +25,10 @@ namespace MVC.Boilerplate.Controllers
             return View(result);
         }
         [HttpGet]
-        public IActionResult CreateEvent()
+        public async Task<IActionResult> CreateEvent()
         {
+            var categories = await _categoryService.GetAllCategories();
+            ViewBag.categoryId = categories;
             return View();
         }
         [HttpPost]
@@ -49,6 +53,8 @@ namespace MVC.Boilerplate.Controllers
         public async Task<IActionResult> UpdateEvent(string id)
         {
             var result = await _eventService.GetEventById(id);
+            var categories = await _categoryService.GetAllCategories();
+            ViewBag.categoryId = categories;
             return View(result);
         }
         [HttpPost]
@@ -58,7 +64,7 @@ namespace MVC.Boilerplate.Controllers
             {
                 var result = await _eventService.UpdateEvent(updateEvent);
                 _notyf.Success("Event updated successfully");
-                return View();
+                return RedirectToAction("UpdateEvent");
             }
             else
             {
