@@ -2,7 +2,14 @@
 using MVC.Boilerplate.Extensions;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.DataTableProcessing;
+using MVC.Boilerplate.Models.Order;
 using MVC.Boilerplate.Service;
+
+
+using System;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace MVC.Boilerplate.Controllers
 {
@@ -13,9 +20,23 @@ namespace MVC.Boilerplate.Controllers
         public OrderController(IOrderService orderService)
         {
             _orderService = orderService;
-    }
-        public async Task<IActionResult> GetOrders()
+        }
+
+        public async Task<IActionResult> Index()
         {
+            return View();
+        }
+        public async Task<IActionResult> GetOrders(Orders orders)
+        {
+            //var orderPlacedDate = orders.OrderPlaced;
+            //ViewBag.OrderPlaced = orderPlacedDate;
+            //TempData["date"] = orders.OrderPlaced;
+
+            var orderDate = orders.OrderPlaced;
+            string orderDateString = orderDate.ToString();
+
+            HttpContext.Session.SetString("_orderDate", orderDateString);
+
             return View();
         }
 
@@ -42,7 +63,12 @@ namespace MVC.Boilerplate.Controllers
 
             int page = 1;
             int pageSize = 10;
-            var result = await _orderService.GetOrderList(page, pageSize);
+
+            //var date = TempData["date"];
+            //string orderPlacedDate = date.ToString();
+
+            var orderPlacedDate = HttpContext.Session.GetString("_orderDate");
+            var result = await _orderService.GetOrderList(orderPlacedDate, page, pageSize);
             var orderList = result.Data;
 
             if (!string.IsNullOrEmpty(searchBy))
