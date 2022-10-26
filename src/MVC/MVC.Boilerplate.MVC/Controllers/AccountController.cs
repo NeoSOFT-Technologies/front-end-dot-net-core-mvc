@@ -32,6 +32,7 @@ namespace MVC.Boilerplate.Controllers
 
             if (ModelState.IsValid)
             {
+           
                 LoginResponse loginResponse = await _service.Login(login);
                 if (loginResponse.UserName != null)
                 {
@@ -42,7 +43,7 @@ namespace MVC.Boilerplate.Controllers
                     _email.To = loginResponse.Email;
                     _email.Body = "You logged in Successfully";
                     _email.Subject = "Confirmation Email";
-                    var result = _emailService.SendEmail(_email);
+                    _emailService.SendEmail(_email);
                     return RedirectToAction("Index", "Home");
                 }
                 else

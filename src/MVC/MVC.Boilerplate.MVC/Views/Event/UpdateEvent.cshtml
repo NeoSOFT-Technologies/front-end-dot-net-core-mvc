@@ -7,7 +7,6 @@
         <h3>@ViewData["Title"]</h3>
         <form asp-controller="Event" asp-action="UpdateEvent">
              <div class="form-group ">
-                <label asp-for="EventId" class="control-label fw-bold text-dark">EventId</label>
                 <input type="text" class="form-control" hidden asp-for="EventId" placeholder="Event Id">
                 <span asp-validation-for="EventId" class="text-danger"></span>
             </div>
@@ -28,12 +27,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label fw-bold text-dark">Date</label>
-                <input type="text" class="form-control" asp-for="Date" placeholder="Enter Date">
+                <input type="datetime-local" class="form-control" asp-for="Date" placeholder="Enter Date">
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label fw-bold text-dark">Description</label>
-                <input type="text" class="form-control" asp-for="Description" placeholder="Enter Description">
+                <textarea  class="form-control" asp-for="Description" placeholder="Enter Description"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -42,8 +41,14 @@
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CategoryId" class="control-label fw-bold text-dark">CategoryId</label>
-                <input type="text" class="form-control" asp-for="CategoryId" placeholder="Enter CategoryId">
+                <label asp-for="CategoryId" class="control-label fw-bold text-dark">Category Name</label>
+                <select type="text" class="form-control" asp-for="CategoryId" placeholder="Select Category Name">
+                    @for (int i=0; i<ViewBag.categoryId.Count; i++ )
+                    {
+                         <option value="@ViewBag.categoryId[i].CategoryId">@ViewBag.categoryId[i].Name</option>
+                    }
+                   
+                </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div><br />
 

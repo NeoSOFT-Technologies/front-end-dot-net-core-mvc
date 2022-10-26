@@ -2,11 +2,18 @@
     var fileupload = document.getElementById("FL");
     var filePath = document.getElementById("spnFilePath");
     var button = document.getElementById("btnSubmit");
+    var buttonUpload = document.getElementById("btnUpload");
     button.onclick = function () {
         fileupload.click();
     };
     fileupload.onchange = function () {
         //var fileName = fileupload.value.split('\\')[fileupload.value.split('\\').length - 1];
+        if (fileupload.files.length == 0) {
+            buttonUpload.disabled = true;
+        }
+        else {
+            buttonUpload.disabled = false;
+        }
         var fileName = $(this).val().split("\\").pop();
         filePath.innerHTML = "<b>Selected File: </b>" + fileName;
         fileValidation();
