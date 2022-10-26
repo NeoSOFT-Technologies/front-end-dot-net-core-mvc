@@ -23,6 +23,9 @@
             @Html.Partial("_PersonData", (ViewBag.Persons as List<Person>))  
         </tbody>  
     </table>  
+    <div class="spinner-border text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+    </div>
   
 @section scripts{  
     <script src="~/js/LazyLoading.js" asp-append-version=true></script>  
