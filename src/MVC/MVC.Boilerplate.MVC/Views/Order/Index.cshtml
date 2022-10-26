@@ -1,0 +1,20 @@
+﻿@model MVC.Boilerplate.Models.Order.Orders
+
+
+
+<form asp-controller="Order" asp-action="GetOrders">      
+        <div class="form-group">
+            <label asp-for="OrderPlaced" class="control-label fw-bold text-dark">Date</label>
+            <input type="datetime-local" class="form-control" asp-for="OrderPlaced" placeholder="Enter Date">
+           @* <span asp-validation-for="OrderPlaced" class="text-danger"></span>*@
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary mb-4">Submit</button>
+</form>
+
+
+@*<div class="form-group">
+    <label asp-for="Date" class="control-label fw-bold text-dark">Date</label>
+    <input type="datetime-local" class="form-control" asp-for="Date" placeholder="Enter Date">
+    <span asp-validation-for="Date" class="text-danger"></span>
+</div>*@

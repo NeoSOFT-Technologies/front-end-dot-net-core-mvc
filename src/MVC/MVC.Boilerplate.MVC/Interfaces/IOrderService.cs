@@ -5,6 +5,6 @@ namespace MVC.Boilerplate.Interfaces
 {
     public interface IOrderService
     {
-        Task<PagedResponse<IEnumerable<Orders>>> GetOrderList(int page, int pageSize);
+        Task<PagedResponse<IEnumerable<Orders>>> GetOrderList(string date, int page, int pageSize);
     }
 }
