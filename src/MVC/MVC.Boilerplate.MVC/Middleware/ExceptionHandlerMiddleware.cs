@@ -52,6 +52,9 @@ namespace MVC.Boilerplate.Middleware
                 case UnauthorizedAccessException unAuthException:
                     httpStatusCode = HttpStatusCode.Unauthorized;
                     break;
+                case AuthenticationException authenticationException:
+                    httpStatusCode = HttpStatusCode.ServiceUnavailable;
+                    break;
                 case Exception ex:
                     httpStatusCode = HttpStatusCode.InternalServerError;
                     break;
