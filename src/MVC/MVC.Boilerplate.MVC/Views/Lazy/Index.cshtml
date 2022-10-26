@@ -23,14 +23,24 @@
             @Html.Partial("_PersonData", (ViewBag.Persons as List<Person>))  
         </tbody>  
     </table>  
-    <div class="spinner-border text-danger" role="status">
-            <span class="visually-hidden">Loading...</span>
-    </div>
+     <div class="overlay">
+    <div class="d-flex justify-content-center">  
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem; z-index: 20;">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      </div>
   
 @section scripts{  
     <script src="~/js/LazyLoading.js" asp-append-version=true></script>  
     <script type="text/javascript">  
-        
+        $(document).ajaxStart(function() {
+            $(".overlay").css('visibility', 'visible')
+         });
+         $(document).ajaxComplete(function() {
+            $(".overlay").css('visibility', 'hidden')
+         });
+
         var url = '@Url.RouteUrl("Lazy/LoadList")';  
         maxPageCount = @ViewBag.MaxPageCount;
         $(window).scroll(scrollHandler);  
