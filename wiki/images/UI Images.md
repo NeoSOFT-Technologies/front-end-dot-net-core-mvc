@@ -19,11 +19,6 @@ Login
 ![NoAccount](https://user-images.githubusercontent.com/87525401/198285944-fef74eb1-81ff-4b5e-8e5c-f40bded83211.PNG)
 
 
-Lazy Loading
-
-![Lazy-Load-Dropdown](https://user-images.githubusercontent.com/92164758/198295095-aed827c1-181f-4e79-a93f-2a69327c915a.png)
-
-
 Fileupload
 
 ![FileUpload](https://user-images.githubusercontent.com/87525401/198289158-6798a62c-3d3e-4235-9177-c2e23d087d3e.png)
@@ -36,7 +31,13 @@ Error Handler
 
 
 # Server-Side Pagination
-
 ![Pagination1](https://user-images.githubusercontent.com/80381121/198289890-3b69f345-7948-4425-be24-97388e2a9dcd.png)
 ![Pagination2](https://user-images.githubusercontent.com/80381121/198289883-ccbb2932-f6a5-46bc-a16e-7786a97158d8.png)
 ![Pagination3](https://user-images.githubusercontent.com/80381121/198289887-2e0f2596-e664-4bf4-9b0e-f639471de9fc.png)
+
+
+# Generate Pdf
+![GeneratePdf](https://user-images.githubusercontent.com/80381121/198296827-d6b36e10-d04b-404d-b071-f7cdf349953f.png)
+
+
+
