@@ -6,6 +6,10 @@ Login
 
 ![Register](https://user-images.githubusercontent.com/87525401/198272434-20889160-3aef-47f0-b39a-854c40354aac.PNG)
 
+![Validation](https://user-images.githubusercontent.com/87525401/198275225-fcf46bbd-c973-4b15-b82c-3c6647035067.PNG)
+
+
+
 Error Handler
 
 ![erropage nav](https://user-images.githubusercontent.com/92291258/198273258-5faf1d4e-bdbc-48e3-8333-cb266d65cdc5.png)
