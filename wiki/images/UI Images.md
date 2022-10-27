@@ -26,6 +26,12 @@ Login
 
 ![category created](https://user-images.githubusercontent.com/92164758/198330258-b0a1ea04-fd8a-462b-8870-a6dc735d113d.png)
 
+# Event
+![Create Event](https://user-images.githubusercontent.com/92291258/198344607-ab60d64b-6fa9-4bc1-8d82-34ca95d95b6c.png)
+![CreateEvent validations](https://user-images.githubusercontent.com/92291258/198344620-dad1524f-3da6-4a9a-be93-ec851fe03cb9.png)
+![create event toaster](https://user-images.githubusercontent.com/92291258/198344626-7c7cae39-93f7-43e3-8701-cc51ba03e16d.png)
+
+
 Fileupload
 
 ![FileUpload](https://user-images.githubusercontent.com/87525401/198289158-6798a62c-3d3e-4235-9177-c2e23d087d3e.png)
