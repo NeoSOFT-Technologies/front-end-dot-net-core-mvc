@@ -2,7 +2,7 @@
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Lazy;
 
-namespace MVC.Boilerplate.Service
+namespace MVC.Boilerplate.Services
 {
     public class LazyService:ILazyService
     {

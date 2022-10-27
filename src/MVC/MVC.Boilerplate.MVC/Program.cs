@@ -4,14 +4,14 @@ using MVC.Boilerplate.Middleware;
 using Serilog;
 using System.Net;
 
-using MVC.Boilerplate.Application.Helper.ApiHelper;
+using MVC.Boilerplate.Application.Helpers.ApiHelper;
 using System.Text.Json.Serialization;
 using ServiceStack.Text;
 using Rotativa.AspNetCore;
 
 using MVC.Boilerplate.Application;
 using AspNetCoreHero.ToastNotification.Extensions;
-using MVC.Boilerplate.Service;
+using MVC.Boilerplate.Services;
 using MVC.Boilerplate.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +21,7 @@ IConfiguration Configuration = builder.Configuration;
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(1);
+    options.IdleTimeout = TimeSpan.FromMinutes(60);
 });
 
 builder.Services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });

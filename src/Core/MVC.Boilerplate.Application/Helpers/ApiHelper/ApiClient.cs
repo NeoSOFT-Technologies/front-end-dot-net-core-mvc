@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using MVC.Boilerplate.Application.Exceptions;
 using MVC.Boilerplate.Application.Models;
 using MVC.Boilerplate.Application.Models.Responses;
 using Newtonsoft.Json;
@@ -9,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVC.Boilerplate.Application.Helper.ApiHelper
+namespace MVC.Boilerplate.Application.Helpers.ApiHelper
 {
     public class ApiClient<T>:IApiClient<T>
     {
@@ -56,13 +57,21 @@ namespace MVC.Boilerplate.Application.Helper.ApiHelper
         public async Task<T?> PostAuthAsync<TEntity>(string apiUrl, TEntity entity)
         {
             StringContent stringContent = new StringContent(JsonConvert.SerializeObject(entity), System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage responseMessage = await _httpClient.PostAsync(apiUrl, stringContent);
+            try { 
 
-            if (responseMessage.IsSuccessStatusCode)
-                return JsonConvert.DeserializeObject<T>(await responseMessage.Content.ReadAsStringAsync());
+             HttpResponseMessage responseMessage = await _httpClient.PostAsync(apiUrl, stringContent);
+                if (responseMessage.IsSuccessStatusCode)
+                    return JsonConvert.DeserializeObject<T>(await responseMessage.Content.ReadAsStringAsync());
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex.Message);
+                throw new AuthenticationException($"{ex.Message}");             
+            }
 
             return default;
-
         }
 
         public async Task<Response<T>> PutAsync<TEntity>(string apiUrl, TEntity entity) 

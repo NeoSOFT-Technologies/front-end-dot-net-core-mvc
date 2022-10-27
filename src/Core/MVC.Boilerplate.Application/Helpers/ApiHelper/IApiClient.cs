@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVC.Boilerplate.Application.Helper.ApiHelper
+namespace MVC.Boilerplate.Application.Helpers.ApiHelper
 {
     public interface IApiClient<T>
     {

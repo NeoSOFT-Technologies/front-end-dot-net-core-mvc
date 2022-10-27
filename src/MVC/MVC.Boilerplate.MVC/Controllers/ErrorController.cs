@@ -30,6 +30,9 @@ namespace MVC.Boilerplate.Controllers
                 case 500:
                     return RedirectToAction("Error500");
                     break;
+                case 503:
+                    return RedirectToAction("Error503");
+                    break;
             }
             return View("Default");
         }
@@ -48,6 +51,15 @@ namespace MVC.Boilerplate.Controllers
             _logger.LogInformation("Error405 action method initiated");
             return View("Error500");
         }
+
+        //Account error
+
+        public IActionResult Error503()
+        {
+            _logger.LogInformation("Error action method initiated");
+            return View("Error503");
+        }
+
         public IActionResult Default()
         {
             _logger.LogInformation("Default action method initiated");

@@ -6,6 +6,7 @@ namespace MVC.Boilerplate.Models.Account
     {
 
         [Required(ErrorMessage = "Please enter Email")]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Please enter Password")]

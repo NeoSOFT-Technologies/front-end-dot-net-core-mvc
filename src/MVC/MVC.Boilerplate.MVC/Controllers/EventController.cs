@@ -3,17 +3,18 @@ using Microsoft.AspNetCore.Mvc;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Event.Commands;
 using MVC.Boilerplate.Models.Event.Queries;
-using MVC.Boilerplate.Service;
 
 namespace MVC.Boilerplate.Controllers
 {
     public class EventController : Controller
     {
+        private readonly ICategoryService _categoryService;
         private readonly INotyfService _notyf;
         private readonly IEventService _eventService;
-        public EventController(IEventService eventService, INotyfService notyf)
+        public EventController(IEventService eventService, INotyfService notyf, ICategoryService categoryService)
         {
             _eventService = eventService;
+            _categoryService = categoryService;
             _notyf = notyf;
            
         }
@@ -23,8 +24,10 @@ namespace MVC.Boilerplate.Controllers
             return View(result);
         }
         [HttpGet]
-        public IActionResult CreateEvent()
+        public async Task<IActionResult> CreateEvent()
         {
+            var categories = await _categoryService.GetAllCategories();
+            ViewBag.categoryId = categories;
             return View();
         }
         [HttpPost]
@@ -32,12 +35,29 @@ namespace MVC.Boilerplate.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _eventService.CreateEvent(events);
-                var eventResult = await _eventService.GetEventList();
-                _notyf.Success("Event created successfully");
-                return View("GetEvents", eventResult);
+                if (events.Date <= DateTime.Now)
+                {
+                    var categories = await _categoryService.GetAllCategories();
+                    ViewBag.categoryId = categories;
+                    _notyf.Error("DateTime should be greater than current dateTime");
+                    return View();
+                }
+                else
+                {
+                    var result = await _eventService.CreateEvent(events);
+                    var eventResult = await _eventService.GetEventList();
+                    _notyf.Success("Event created successfully");
+                    return View("GetEvents", eventResult);
+                }
+                
             }
-            return View();
+            else
+            {
+                var categories = await _categoryService.GetAllCategories();
+                ViewBag.categoryId = categories;
+                return View();
+            }
+            
         }
 
         public async Task<IActionResult> GetEventById(string eventId)
@@ -49,6 +69,8 @@ namespace MVC.Boilerplate.Controllers
         public async Task<IActionResult> UpdateEvent(string id)
         {
             var result = await _eventService.GetEventById(id);
+            var categories = await _categoryService.GetAllCategories();
+            ViewBag.categoryId = categories;
             return View(result);
         }
         [HttpPost]
@@ -56,12 +78,25 @@ namespace MVC.Boilerplate.Controllers
         {
             if(ModelState.IsValid)
             {
-                var result = await _eventService.UpdateEvent(updateEvent);
-                _notyf.Success("Event updated successfully");
-                return View();
+                if (updateEvent.Date <= DateTime.Now)
+                {
+                    var categories = await _categoryService.GetAllCategories();
+                    ViewBag.categoryId = categories;
+                    _notyf.Error("DateTime should be greater than current dateTime");
+                    return View();
+                }
+                else
+                {
+                    var result = await _eventService.UpdateEvent(updateEvent);
+                    _notyf.Success("Event updated successfully");
+                    return RedirectToAction("UpdateEvent");
+                }
+               
             }
             else
             {
+                var categories = await _categoryService.GetAllCategories();
+                ViewBag.categoryId = categories;
                 return View();
             }
             
