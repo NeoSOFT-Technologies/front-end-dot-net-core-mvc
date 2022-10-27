@@ -18,6 +18,13 @@ Login
 
 ![NoAccount](https://user-images.githubusercontent.com/87525401/198285944-fef74eb1-81ff-4b5e-8e5c-f40bded83211.PNG)
 
+# Category
+![Category Grid](https://user-images.githubusercontent.com/92164758/198330585-c8f892b3-63f4-4cb8-9763-bc6dfb38cf1d.png)
+
+
+![Create Category](https://user-images.githubusercontent.com/92164758/198330268-6ae9bd29-ab5f-4b04-a28d-e474e68d1e54.png)
+
+![category created](https://user-images.githubusercontent.com/92164758/198330258-b0a1ea04-fd8a-462b-8870-a6dc735d113d.png)
 
 Fileupload
 
