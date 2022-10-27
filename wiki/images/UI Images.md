@@ -21,6 +21,10 @@ Login
 ![NoAccount](https://user-images.githubusercontent.com/87525401/198285944-fef74eb1-81ff-4b5e-8e5c-f40bded83211.PNG)
 
 
+Fileupload
+
+![FileUpload](https://user-images.githubusercontent.com/87525401/198289158-6798a62c-3d3e-4235-9177-c2e23d087d3e.png)
+
 
 Error Handler
 
