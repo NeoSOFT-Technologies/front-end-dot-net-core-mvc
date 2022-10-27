@@ -7,11 +7,12 @@ namespace MVC.Boilerplate.Models.Event.Commands
         [Required]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Enter Date")]
+        [DataType(DataType.DateTime, ErrorMessage ="Date should be in format dd-mm-yy hh:mm am/pm")]
         public DateTime Date { get; set; }
 
-        [Required]
-        [RegularExpression("^[1-9][0-9]*$", ErrorMessage = "price should be greater than zero")]
+        [Required(ErrorMessage = "Price field is required")]
+        [RegularExpression("^[1-9][0-9]*$", ErrorMessage = "Price should be greater than zero")]
         public int Price { get; set; }
 
         [Required]
@@ -21,6 +22,7 @@ namespace MVC.Boilerplate.Models.Event.Commands
         public string Description { get; set; }
 
         [Required]
+        [Url(ErrorMessage = "Url should start with Http:// or Https://")]
         public string ImageUrl { get; set; }
 
         [Required]

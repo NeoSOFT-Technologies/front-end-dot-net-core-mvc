@@ -36,12 +36,29 @@ namespace MVC.Boilerplate.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _eventService.CreateEvent(events);
-                var eventResult = await _eventService.GetEventList();
-                _notyf.Success("Event created successfully");
-                return View("GetEvents", eventResult);
+                if (events.Date <= DateTime.Now)
+                {
+                    var categories = await _categoryService.GetAllCategories();
+                    ViewBag.categoryId = categories;
+                    _notyf.Error("DateTime should be greater than current dateTime");
+                    return View();
+                }
+                else
+                {
+                    var result = await _eventService.CreateEvent(events);
+                    var eventResult = await _eventService.GetEventList();
+                    _notyf.Success("Event created successfully");
+                    return View("GetEvents", eventResult);
+                }
+                
             }
-            return View();
+            else
+            {
+                var categories = await _categoryService.GetAllCategories();
+                ViewBag.categoryId = categories;
+                return View();
+            }
+            
         }
 
         public async Task<IActionResult> GetEventById(string eventId)
@@ -62,12 +79,25 @@ namespace MVC.Boilerplate.Controllers
         {
             if(ModelState.IsValid)
             {
-                var result = await _eventService.UpdateEvent(updateEvent);
-                _notyf.Success("Event updated successfully");
-                return RedirectToAction("UpdateEvent");
+                if (updateEvent.Date <= DateTime.Now)
+                {
+                    var categories = await _categoryService.GetAllCategories();
+                    ViewBag.categoryId = categories;
+                    _notyf.Error("DateTime should be greater than current dateTime");
+                    return View();
+                }
+                else
+                {
+                    var result = await _eventService.UpdateEvent(updateEvent);
+                    _notyf.Success("Event updated successfully");
+                    return RedirectToAction("UpdateEvent");
+                }
+               
             }
             else
             {
+                var categories = await _categoryService.GetAllCategories();
+                ViewBag.categoryId = categories;
                 return View();
             }
             

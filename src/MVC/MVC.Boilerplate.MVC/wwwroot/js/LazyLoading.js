@@ -3,7 +3,8 @@ var page = 0,
     maxPageCount=0
 
 var scrollHandler = function () {
-    if (maxPageCount >= page && $(document).scrollTop() <= $(document).height() - $(window).height()){
+    //if (maxPageCount >= page && $(document).scrollTop() == $(document).height() - $(window).height()){
+    if (maxPageCount > page && $(window).scrollTop() + $(window).height() > $(".infinite-scroll").height()) {
         loadPersonData(url);
     }
 }
