@@ -43,3 +43,5 @@ Error Handler
 
 # Video Thumbnails
 ![PersonVideoThumbnail](https://user-images.githubusercontent.com/92164758/198301599-d51212b6-2fb2-4edf-b034-3ed92aff691a.png)
+
+![AnimalVideoThumbnail](https://user-images.githubusercontent.com/92164758/198303048-4d277362-a694-41e1-9029-d79e4fb3da61.png)
