@@ -12,6 +12,8 @@ Login
 
 ![ErrorToast](https://user-images.githubusercontent.com/87525401/198279673-612f4328-0fa0-48fe-9842-dec999d1a193.PNG)
 
+![loginValidation](https://user-images.githubusercontent.com/87525401/198282423-3dfe9add-e9d3-45c4-808c-95f924650920.PNG)
+
 
 
 Error Handler
