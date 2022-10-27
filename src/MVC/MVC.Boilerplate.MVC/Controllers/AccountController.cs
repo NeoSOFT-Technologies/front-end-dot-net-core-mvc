@@ -1,10 +1,10 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using MVC.Boilerplate.Application.Helper.EmailHelper;
+using MVC.Boilerplate.Application.Helpers.EmailHelper;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Account;
-using MVC.Boilerplate.Service;
+
 
 namespace MVC.Boilerplate.Controllers
 {

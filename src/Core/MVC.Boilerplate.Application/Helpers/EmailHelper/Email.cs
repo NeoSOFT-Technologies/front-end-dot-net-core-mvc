@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVC.Boilerplate.Application.Helper.EmailHelper
+namespace MVC.Boilerplate.Application.Helpers.EmailHelper
 {
     public class EmailSettings
     {

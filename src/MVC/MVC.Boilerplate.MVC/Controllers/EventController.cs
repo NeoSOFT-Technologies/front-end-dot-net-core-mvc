@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Event.Commands;
 using MVC.Boilerplate.Models.Event.Queries;
-using MVC.Boilerplate.Service;
 
 namespace MVC.Boilerplate.Controllers
 {

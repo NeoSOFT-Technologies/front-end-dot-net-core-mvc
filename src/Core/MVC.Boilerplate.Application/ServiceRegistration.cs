@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MVC.Boilerplate.Application.Helper.EmailHelper;
+using MVC.Boilerplate.Application.Helpers.EmailHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;

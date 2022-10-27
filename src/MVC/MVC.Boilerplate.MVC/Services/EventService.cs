@@ -1,5 +1,5 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
-using MVC.Boilerplate.Application.Helper.ApiHelper;
+using MVC.Boilerplate.Application.Helpers.ApiHelper;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Event.Commands;
 using MVC.Boilerplate.Models.Event.Queries;
@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace MVC.Boilerplate.Service
+namespace MVC.Boilerplate.Services
 {
     public class EventService : IEventService
     {

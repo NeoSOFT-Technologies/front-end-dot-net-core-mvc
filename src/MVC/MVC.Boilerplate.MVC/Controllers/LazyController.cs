@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Lazy;
-using MVC.Boilerplate.Service;
 
 namespace MVC.Boilerplate.Controllers
 {

@@ -1,11 +1,11 @@
-﻿using MVC.Boilerplate.Application.Helper.ApiHelper;
+﻿using MVC.Boilerplate.Application.Helpers.ApiHelper;
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Account;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace MVC.Boilerplate.Service
+namespace MVC.Boilerplate.Services
 {
     public class AccountService: IAccountService
     {
