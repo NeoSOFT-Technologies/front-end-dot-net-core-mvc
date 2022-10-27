@@ -28,10 +28,6 @@ namespace MVC.Boilerplate.Controllers
         }
         public async Task<IActionResult> GetOrders(Orders orders)
         {
-            //var orderPlacedDate = orders.OrderPlaced;
-            //ViewBag.OrderPlaced = orderPlacedDate;
-            //TempData["date"] = orders.OrderPlaced;
-
             var orderDate = orders.OrderPlaced;
             string orderDateString = orderDate.ToString();
 
@@ -63,11 +59,8 @@ namespace MVC.Boilerplate.Controllers
 
             int page = 1;
             int pageSize = 10;
-
-            //var date = TempData["date"];
-            //string orderPlacedDate = date.ToString();
-
             var orderPlacedDate = HttpContext.Session.GetString("_orderDate");
+
             var result = await _orderService.GetOrderList(orderPlacedDate, page, pageSize);
             var orderList = result.Data;
 
