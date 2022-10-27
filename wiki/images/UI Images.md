@@ -1,5 +1,3 @@
-UI Images
-
 Login
 
 ![Login](https://user-images.githubusercontent.com/87525401/198270903-9378fa79-0d85-4e61-86e7-15a957f0e0d6.PNG)
@@ -32,4 +30,8 @@ Error Handler
 ![error page](https://user-images.githubusercontent.com/92291258/198273285-43ed958f-a88b-4353-a929-7f10b5ad47ec.png)
 
 
+# Server-Side Pagination
 
+![Pagination1](https://user-images.githubusercontent.com/80381121/198289890-3b69f345-7948-4425-be24-97388e2a9dcd.png)
+![Pagination2](https://user-images.githubusercontent.com/80381121/198289883-ccbb2932-f6a5-46bc-a16e-7786a97158d8.png)
+![Pagination3](https://user-images.githubusercontent.com/80381121/198289887-2e0f2596-e664-4bf4-9b0e-f639471de9fc.png)
