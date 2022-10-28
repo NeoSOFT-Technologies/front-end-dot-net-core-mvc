@@ -34,12 +34,14 @@ Login
 ![update event](https://user-images.githubusercontent.com/92291258/198346791-c1ae4f86-d46c-452d-912d-a4344ede2594.png)
 ![update toaster](https://user-images.githubusercontent.com/92291258/198346801-7984728d-560f-4a0a-9b6b-769cf7b1a8fe.png)
 
+Delete Modal Popup
+![DeleteEventPopup](https://user-images.githubusercontent.com/88362571/198538944-b0f7bc62-0b58-4a92-a0b3-792fd9217efb.PNG)
+![DeleteEventSuccess](https://user-images.githubusercontent.com/88362571/198539016-d16d81e8-4cb6-40ce-b795-d7dc18f7a071.png)
 
 
 Fileupload
 
 ![FileUpload](https://user-images.githubusercontent.com/87525401/198289158-6798a62c-3d3e-4235-9177-c2e23d087d3e.png)
-
 
 Error Handler
 
