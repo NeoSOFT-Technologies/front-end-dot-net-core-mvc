@@ -1,9 +1,9 @@
-﻿using MVC.Boilerplate.Application.Helper.ApiHelper;
+﻿using MVC.Boilerplate.Application.Helpers.ApiHelper;
 using MVC.Boilerplate.Models.Category.Queries;
 using MVC.Boilerplate.Models.Category.Commands;
 using MVC.Boilerplate.Interfaces;
 
-namespace MVC.Boilerplate.Service
+namespace MVC.Boilerplate.Services
 {
     public class CategoryService:ICategoryService
     {
