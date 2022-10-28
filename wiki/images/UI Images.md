@@ -19,6 +19,12 @@ Login
 ![NoAccount](https://user-images.githubusercontent.com/87525401/198285944-fef74eb1-81ff-4b5e-8e5c-f40bded83211.PNG)
 
 
+Delete Modal Popup
+![DeleteEventPopup1](https://user-images.githubusercontent.com/88362571/198540442-1fb64097-06cf-43ce-8450-f62158baea6f.png)
+![DeleteEventSuccess](https://user-images.githubusercontent.com/88362571/198540557-cad6b08f-7923-4a4c-8249-330cea375ad6.png)
+
+
+
 Fileupload
 ![FileUpload](https://user-images.githubusercontent.com/87525401/198513084-58a92148-9c64-4690-a1e7-2edfbbe5f33f.png)
 
