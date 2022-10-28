@@ -22,16 +22,15 @@ Login
 Fileupload
 ![FileUpload](https://user-images.githubusercontent.com/87525401/198513084-58a92148-9c64-4690-a1e7-2edfbbe5f33f.png)
 
-![Disablebutton](https://user-images.githubusercontent.com/87525401/198513282-82a0a6dd-b235-4478-9813-7b9724657b2f.png)
+![DisableButton1](https://user-images.githubusercontent.com/87525401/198517941-631098a0-1ee7-41fd-b42e-a69aa7f09e14.PNG)
 
-![SizeValidation](https://user-images.githubusercontent.com/87525401/198513526-ca7046f3-0910-4ade-b3cd-dd9b8757f93f.png)
+![SizeValidation1](https://user-images.githubusercontent.com/87525401/198518019-e9f4f85f-972e-46bb-84ee-9550940a15e7.PNG)
 
-![TypeValidation](https://user-images.githubusercontent.com/87525401/198515258-b6f3fc5e-9cb0-428a-90e3-fdc949aa9e02.png)
+![TypeValidation1](https://user-images.githubusercontent.com/87525401/198518054-1b5cca5c-a7ec-4e39-a589-054e7e114afc.png)
 
-![EnableFile](https://user-images.githubusercontent.com/87525401/198515501-cfa58675-258d-4249-afd7-1d0cfa203c21.png)
+![Enable1](https://user-images.githubusercontent.com/87525401/198518133-4dc71d35-b5b9-495f-80e4-b56960ad8eb6.PNG)
 
-![Link](https://user-images.githubusercontent.com/87525401/198515770-f4f51080-0b52-4c7e-bd16-b6383fd25112.png)
-
+![Link1](https://user-images.githubusercontent.com/87525401/198518193-2c1ecdb4-fab6-4572-9da5-fc40d61d72df.PNG)
 
 
 
