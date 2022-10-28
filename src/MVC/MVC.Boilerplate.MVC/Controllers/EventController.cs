@@ -104,7 +104,17 @@ namespace MVC.Boilerplate.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteEvent(string eventId)
         {
-            await _eventService.DeleteEvent(eventId);
+            var res = await _eventService.DeleteEvent(eventId);
+
+            if (res!= "")
+            {
+                _notyf.Error("Something went wrong ...");//"Something went wrong ..."
+            }
+            else
+            {
+                _notyf.Success("Record Deleted Successfully");
+                /*  return RedirectToAction("Index", "DeleteModal");*/
+            }
             var result = await _eventService.GetEventList();
             return View("GetEvents",result);
         }

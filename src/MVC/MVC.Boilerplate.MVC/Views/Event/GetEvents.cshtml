@@ -47,9 +47,21 @@
                                 <td>
                                     @*@Html.ActionLink("Details", "GetKeyById", new { id = item.Id }) |*@
                                     <a class="btn btn-sm btn-success " href="@Url.Action("UpdateEvent", "Event", new { id = item.EventId })"><i class="fa fa-pencil"></i>&nbsp;Edit</a>
-                                    <a class="btn btn-sm btn-danger deleteEvent" data-bs-toggle="modal" data-bs-target="#deleteEventConfirmModal" id=@(item.EventId)>&nbsp;Delete</a>
+                                    @*<a class="btn btn-sm btn-danger deleteEvent" data-bs-toggle="modal" data-bs-target="#deleteEventConfirmModal" id=@(item.EventId)>&nbsp;Delete</a>*@
+                                    <a class="btn btn-sm btn-danger delete"
+                                   data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                   data-id="@item.EventId"
+                                   data-controller="Event"
+                                   data-action="DeleteEvent"
+                                   data-label="Delete Event"
+                                   data-body-message="Are you sure to delete this Event record?"
+                                   data-action-url="@(@Url.Action("DeleteEvent","Event", new {eventId=@item.EventId}))">
+                                        Delete <i class="fas fa-trash alt"></i>
+
+                                    </a>
                                 </td>
-                                <div class="modal" id="deleteEventConfirmModal" tabindex="-1" aria-labelledby="deleteEventConfirmModalLabel" aria-hidden="true">
+                                @*<p>@(@Url.Action("DeleteEvent","Event", new {eventId=@item.EventId}))</p>*@
+                                @*<div class="modal" id="deleteEventConfirmModal" tabindex="-1" aria-labelledby="deleteEventConfirmModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -65,7 +77,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>*@
                             </tr>
                         }
                     </tbody>
@@ -92,7 +104,7 @@
                             {
                                 isSuccess = true;
                                 //location.reload();
-                                toastNotifySuccess('Event Deleted Successfully','');
+                                toastNotifySuccess('@Url.Action("DeleteEvent","Event")'+"?eventId="+id,'');
                             },
                             complete:()=>{
                                 if(isSuccess)$("#deleteEvent"+id).parent().parent().hide();

@@ -14,15 +14,26 @@
       <h2>File Upload</h2>
   </div>
   <div class="col-5 card border border-dark rounded m-20 mx-auto"> 
-      <div class="card-header">File Upload</div>
+      <div class="card-header">File Upload &nbsp; <span> <i class="fa fa-info-circle" 
+       data-toggle="tooltip"
+       title="Note: Please select the file of size 32Kb and of type .jpg,.jpeg,.png,.csv,.xls,.xlsx,.pdf"
+       id='fileUploadNote'></i></span>
+   </div>
       <div class="card-body">
  <form enctype="multipart/form-data" method="post">
     <vc:file-upload field-name="@nameof(Model.File)"></vc:file-upload>
     <button type="submit" id="btnUpload" disabled>Upload</button>
-    <div class="text-info font-weight-bold mt-2">Note: Please select the file of size 32Kb and of type .jpg,.jpeg,.png,.csv,.xls,.xlsx,.pdf </div>
+    @*<div class="text-info font-weight-bold mt-2">Note: Please select the file of size 32Kb and of type .jpg,.jpeg,.png,.csv,.xls,.xlsx,.pdf </div>*@
     </form>
     </div>
     </div>
 
- 
   <script src="~/js/FileUpload.js" type="text/javascript" on-content-loaded="true"></script>
+  <script type='text/javascript' on-content-loaded="true" asp-append-version="true">
+$(window).load(function(){
+$(document).ready(function() {
+  $('#fileUploadNote').tooltip();
+});
+}); 
+</script>
+  
