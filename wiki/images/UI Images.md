@@ -21,7 +21,8 @@ Login
 
 Fileupload
 
-![FileUpload](https://user-images.githubusercontent.com/87525401/198289158-6798a62c-3d3e-4235-9177-c2e23d087d3e.png)
+
+
 
 
 Error Handler
