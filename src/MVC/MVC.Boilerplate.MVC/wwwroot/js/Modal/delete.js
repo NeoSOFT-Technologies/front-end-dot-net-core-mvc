@@ -34,39 +34,49 @@
         var bodyMessage = $(target).data('body-message');
         var actionUrl = $(target).data('action-url');
         redirectUrl = $(target).data('redirect-url');
-        if (action == "Delete") {
-            url = actionUrl;// "/" + controller + "/" + action + "?Id=" + Id;
-        }
+        url = actionUrl;
+        /*  if (action == "Delete") {
+              url = actionUrl;// "/" + controller + "/" + action + "?Id=" + Id;
+          }*/
         $("#myModalLabel").text(label);
         $(".delete-modal-body").text(bodyMessage);
         $("#deleteModal").modal('show');
     });
 
     $("#confirm-delete").on('click', () => {
-         $.ajax({
-             type: "DELETE",
-             url: url,
-             contentType: "application/json;charset=utf-8",
-             success: () => {
-                 isSuccess = true;
-                 $("#deleteModal").modal('hide');
+        var isSuccess = false;
+        $.ajax({
+            type: "DELETE",
+            url: url,
+            contentType: "application/json;charset=utf-8",
+            success: () => {
+                isSuccess = true;
+                $("#deleteModal").modal('hide');
+                toastNotifySuccess("Record Deleted Successfully");
                 // window.location.reload();
-             },
-             complete: () => {
-                 if (isSuccess) $(this).parent().parent().hide();
-             }
-         });
-       /* $.get(url)
+            },
+            error: () => {
+                isSuccess = false;
+                $("#deleteModal").modal('hide');
+                toastNotifyError("Something wents wrong...");
+            },
+            complete: () => {
+                if (isSuccess) $(this).parent().parent().hide();
+            }
+        });
+        /*$.get(url)
             .done((result) => {
+            toastNotifySuccess("Record Deleted Successfully");
                 if (!redirectUrl) {
-                    return $(target).parent().parent().hide("slow");
+                return $(target).parent().parent().hide("slow");
                 }
                 window.location.href = redirectUrl;
             })
             .fail((error) => {
+            toastNotifyError("Something wents wrong...");
                 if (redirectUrl)
                     window.location.href = redirectUrl;
-            }).always(() => {
+                           }).always(() => {
                 $("#deleteModal").modal('hide');
             });*/
     });

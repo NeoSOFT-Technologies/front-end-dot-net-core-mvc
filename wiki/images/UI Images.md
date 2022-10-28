@@ -18,6 +18,26 @@ Login
 
 ![NoAccount](https://user-images.githubusercontent.com/87525401/198285944-fef74eb1-81ff-4b5e-8e5c-f40bded83211.PNG)
 
+# Category
+![Category Grid](https://user-images.githubusercontent.com/92164758/198330585-c8f892b3-63f4-4cb8-9763-bc6dfb38cf1d.png)
+
+
+![Create Category](https://user-images.githubusercontent.com/92164758/198330268-6ae9bd29-ab5f-4b04-a28d-e474e68d1e54.png)
+
+![category created](https://user-images.githubusercontent.com/92164758/198330258-b0a1ea04-fd8a-462b-8870-a6dc735d113d.png)
+
+# Event
+![event List](https://user-images.githubusercontent.com/92291258/198344869-7f9e4a32-72c5-4c37-bb56-2023a997dad9.png)
+![Create Event](https://user-images.githubusercontent.com/92291258/198344607-ab60d64b-6fa9-4bc1-8d82-34ca95d95b6c.png)
+![CreateEvent validations](https://user-images.githubusercontent.com/92291258/198344620-dad1524f-3da6-4a9a-be93-ec851fe03cb9.png)
+![create event toaster](https://user-images.githubusercontent.com/92291258/198344626-7c7cae39-93f7-43e3-8701-cc51ba03e16d.png)
+![update event](https://user-images.githubusercontent.com/92291258/198346791-c1ae4f86-d46c-452d-912d-a4344ede2594.png)
+![update toaster](https://user-images.githubusercontent.com/92291258/198346801-7984728d-560f-4a0a-9b6b-769cf7b1a8fe.png)
+
+Delete Modal Popup
+![DeleteEventPopup](https://user-images.githubusercontent.com/88362571/198538944-b0f7bc62-0b58-4a92-a0b3-792fd9217efb.PNG)
+![DeleteEventSuccess](https://user-images.githubusercontent.com/88362571/198539016-d16d81e8-4cb6-40ce-b795-d7dc18f7a071.png)
+
 
 Delete Modal Popup
 ![DeleteEventPopup1](https://user-images.githubusercontent.com/88362571/198540442-1fb64097-06cf-43ce-8450-f62158baea6f.png)
@@ -37,7 +57,6 @@ Fileupload
 ![Enable1](https://user-images.githubusercontent.com/87525401/198518133-4dc71d35-b5b9-495f-80e4-b56960ad8eb6.PNG)
 
 ![Link1](https://user-images.githubusercontent.com/87525401/198518193-2c1ecdb4-fab6-4572-9da5-fc40d61d72df.PNG)
-
 
 
 Error Handler
