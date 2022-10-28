@@ -33,4 +33,16 @@ namespace MVC.Boilerplate.Models.DataTableProcessing
         public int Column { get; set; }
         public string Dir { get; set; }
     }
+
+    public class DtOrder
+    {
+        public int Column { get; set; }
+        public DtOrderDir Dir { get; set; }
+    }
+
+    public enum DtOrderDir
+    {
+        Asc,
+        Desc
+    }
 }
