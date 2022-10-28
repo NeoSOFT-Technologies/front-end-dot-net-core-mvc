@@ -20,7 +20,17 @@ Login
 
 
 Fileupload
+![FileUpload](https://user-images.githubusercontent.com/87525401/198513084-58a92148-9c64-4690-a1e7-2edfbbe5f33f.png)
 
+![Disablebutton](https://user-images.githubusercontent.com/87525401/198513282-82a0a6dd-b235-4478-9813-7b9724657b2f.png)
+
+![SizeValidation](https://user-images.githubusercontent.com/87525401/198513526-ca7046f3-0910-4ade-b3cd-dd9b8757f93f.png)
+
+![TypeValidation](https://user-images.githubusercontent.com/87525401/198515258-b6f3fc5e-9cb0-428a-90e3-fdc949aa9e02.png)
+
+![EnableFile](https://user-images.githubusercontent.com/87525401/198515501-cfa58675-258d-4249-afd7-1d0cfa203c21.png)
+
+![Link](https://user-images.githubusercontent.com/87525401/198515770-f4f51080-0b52-4c7e-bd16-b6383fd25112.png)
 
 
 
