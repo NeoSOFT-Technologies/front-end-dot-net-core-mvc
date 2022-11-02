@@ -11,12 +11,10 @@ namespace MVC.Boilerplate.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IWebHostEnvironment webHostEnvironment;
 
-        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHost)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            webHostEnvironment = webHost;
         }
 
         public IActionResult Index()
@@ -36,12 +34,6 @@ namespace MVC.Boilerplate.Controllers
             
         }
 
-        [HttpPost]
-        public ActionResult Index(FileUploadModel fileUploadModel)
-        {
-            string uniquefileName = UploadFile(fileUploadModel);
-            return View();
-        }
 
         public IActionResult Privacy()
         {
@@ -54,25 +46,6 @@ namespace MVC.Boilerplate.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        private string UploadFile(FileUploadModel fileUploadModel)
-        {
-            string uniqueFileName = null;
-            if (fileUploadModel.File != null)
-            {
-                string uploadFolder = Path.Combine(webHostEnvironment.WebRootPath, "FileFolder");
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + fileUploadModel.File.FileName;
-                if (!Directory.Exists(uploadFolder))
-                {
-                    Directory.CreateDirectory(uploadFolder);
-                }
-                string filePath = Path.Combine(uploadFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    fileUploadModel.File.CopyTo(fileStream);
-                }
-            }
-            return uniqueFileName;
-        }
        
 
 
