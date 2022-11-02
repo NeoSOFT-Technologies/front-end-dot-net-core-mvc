@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace MVC.Boilerplate.Views.Shared.Components.FileUpload
+namespace MVC.Boilerplate.Components
 {
     public class FileUploadViewComponent : ViewComponent
     {

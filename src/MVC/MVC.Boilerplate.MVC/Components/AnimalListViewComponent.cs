@@ -2,7 +2,7 @@
 using MVC.Boilerplate.Interfaces;
 using MVC.Boilerplate.Models.Lazy;
 
-namespace MVC.Boilerplate.Component
+namespace MVC.Boilerplate.Components
 {
     public class AnimalListViewComponent:ViewComponent
     {
