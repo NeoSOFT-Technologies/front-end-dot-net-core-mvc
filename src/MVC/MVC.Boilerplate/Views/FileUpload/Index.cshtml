@@ -25,9 +25,15 @@
       <div class="card-body">
  <form enctype="multipart/form-data" method="post">
     <vc:file-upload field-name="@nameof(Model.File)"></vc:file-upload>
+
+    <button type="submit" id="btnUpload" class="mb-1" disabled>Upload</button>
+
      <div class="mt-2 mb-2 bd-callout-info">
-         <p class="px-2 pt-2">Note: Only ( jpg, jpeg, png, csv, xls, xlsx, pdf) files up to 32kb allowed. </p></div>
-    <button type="submit" id="btnUpload" disabled>Upload</button>
+         <div class="px-2 pt-2"><b>Note: </b><br />
+             <ul><li>@ViewBag.TypeDisclaimer</li>
+                 <li>@ViewBag.SizeDisclaimer</li></ul>
+                 </div></div>
+    
    @* <div class="text-info font-weight-bold mt-2">Note: Please select the file of size 32Kb and of type .jpg,.jpeg,.png,.csv,.xls,.xlsx,.pdf </div>*@
     </form>
     </div>
