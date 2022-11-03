@@ -42,8 +42,8 @@
                         {
                             <tr>
                                 <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">@item.Name</td>
-                                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">@item.ImageUrl</td>
-                                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">@item.Date</td>
+                                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;"><a href=@item.ImageUrl target="_blank">@item.ImageUrl</a></td>
+                                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">@item.Date.ToString("dd/MM/yyyy")</td>
                                 <td>
                                     <a class="btn btn-sm btn-success " href="@Url.Action("UpdateEvent", "Event", new { id = item.EventId })"><i class="fa fa-pencil"></i>&nbsp;Edit</a>
                                     @*<a class="btn btn-sm btn-danger deleteEvent" data-bs-toggle="modal" data-bs-target="#deleteEventConfirmModal" id=@("deleteEvent"+item.EventId)>&nbsp;Delete</a>*@
@@ -56,7 +56,7 @@
                                    data-action-Type="DELETE"
                                    data-body-message="Are you sure to delete this Event record?"
                                    data-action-url="@(@Url.Action("DeleteEvent","Event", new {eventId=@item.EventId}))">
-                                        Delete <i class="fas fa-trash alt"></i>
+                                        Delete <i class="fa fa-trash alt"></i>
 
                                     </a>
                                 </td>
