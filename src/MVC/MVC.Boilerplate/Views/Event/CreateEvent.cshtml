@@ -8,6 +8,7 @@
             <h3>@ViewData["Title"]</h3>
             <form asp-controller="Event" asp-action="CreateEvent">
                 <button type="submit" class="btn btn-md btn-primary d-flex float-end mb-2">Submit</button>
+                 <input type="button" value="Cancel" class="btn btn-danger d-flex float-end mb-2" onclick="location.href='@Url.Action("GetEvents", "Event")'">
                 <div class="form-group ">
                     <label class="control-label fw-bold text-dark">Name</label>
                     <input type="text" class="form-control" asp-for=Name placeholder="Event Name">
