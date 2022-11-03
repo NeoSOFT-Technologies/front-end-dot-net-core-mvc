@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Static\**" />
+    <Content Remove="Static\**" />
+    <EmbeddedResource Remove="Static\**" />
+    <None Remove="Static\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
@@ -26,6 +33,11 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Rotativa\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lazyLoading\Animals.txt" />
+    <None Include="wwwroot\lazyLoading\Persons.txt" />
   </ItemGroup>
 
   <ItemGroup>

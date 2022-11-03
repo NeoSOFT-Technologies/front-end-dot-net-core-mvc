@@ -12,7 +12,7 @@ Login
 
 ![loginValidation](https://user-images.githubusercontent.com/87525401/198282423-3dfe9add-e9d3-45c4-808c-95f924650920.PNG)
 
-![DashboardToast](https://user-images.githubusercontent.com/87525401/198284358-a30b682b-6a53-44be-b1e4-ea8d22a85d8d.png)
+![Dashboard](https://user-images.githubusercontent.com/87525401/199660998-4db96306-beea-45ca-9eda-22176e0451a2.png)
 
 ![errorLogin](https://user-images.githubusercontent.com/87525401/198285014-9517962d-81d4-4d97-86f4-b6dafae2397c.PNG)
 
