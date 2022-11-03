@@ -21,7 +21,7 @@
   </div>
   <div class="col-5 card border border-dark rounded m-20 mx-auto"> 
       <div class="card-header">File Upload &nbsp;
-          <span data-toggle="tooltip" data-placement="right" title="Please select the file of size 32Kb and of type .jpg,.jpeg,.png,.csv,.xls,.xlsx,.pdf"><i class="fa fa-info-circle"></i></span></div>
+          <span data-toggle="tooltip" data-placement="right" title="Only (jpg,jpeg,png,csv,xls,xlsx,pdf) files up to 32kb allowed."><i class="fa fa-info-circle"></i></span></div>
       <div class="card-body">
  <form enctype="multipart/form-data" method="post">
     <vc:file-upload field-name="@nameof(Model.File)"></vc:file-upload>
