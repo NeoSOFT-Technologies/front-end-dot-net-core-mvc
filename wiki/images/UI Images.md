@@ -35,8 +35,11 @@ Login
 ![update toaster](https://user-images.githubusercontent.com/92291258/198346801-7984728d-560f-4a0a-9b6b-769cf7b1a8fe.png)
 
 Delete Modal Popup
-![DeleteEventPopup](https://user-images.githubusercontent.com/88362571/198538944-b0f7bc62-0b58-4a92-a0b3-792fd9217efb.PNG)
-![DeleteEventSuccess](https://user-images.githubusercontent.com/88362571/198539016-d16d81e8-4cb6-40ce-b795-d7dc18f7a071.png)
+
+![GenericModal1](https://user-images.githubusercontent.com/88362571/199811724-71b525ee-61ea-40b5-ad5d-36114ff02db2.png)
+![GenericModal2](https://user-images.githubusercontent.com/88362571/199811761-544088a2-a63d-4dea-bc48-49fac2730d43.png)
+![GenericModalPopupConfirm](https://user-images.githubusercontent.com/88362571/199811728-c39b3d7e-30ae-4a31-874d-92ff87c1d3e6.png)
+![GenericModalPopup](https://user-images.githubusercontent.com/88362571/199811781-f7908572-abaa-48a5-a48c-5b42f22ce68a.png)
 
 
 Fileupload
