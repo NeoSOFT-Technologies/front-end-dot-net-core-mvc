@@ -7,16 +7,11 @@ namespace MVC.Boilerplate.Services
     public class LazyService:ILazyService
     {
         private readonly ILogger<LazyService> _logger;
-
-        private readonly IConfiguration _configuration;
-        private readonly string tmp = (System.IO.Directory.GetCurrentDirectory() + "\\wwwroot\\lazyLoading");
         private readonly string _basePath;
         public LazyService(ILogger<LazyService> logger, IConfiguration configuration)
         {
             _logger = logger;
-            _configuration = configuration;
-            _basePath = _configuration.GetSection("LazyLoadingSourcePath").Value;
-
+            _basePath = configuration.GetSection("LazyLoadingSourcePath").Value;
         }
 
         public async Task<List<Person>> PersonList()
