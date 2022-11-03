@@ -47,11 +47,41 @@
     </button>
 </div>
 
+
 @section Scripts{
 <script>
+
     var table = $('#table_id').DataTable({
             "lengthMenu": [ [2, 5, 10, -1], [ 2, 5, 10, "All"] ],
-            "pageLength": 5
+            "pageLength": 5,
+             dom: 'Bfrtip',
+             "buttons": [  
+                    {  
+                        extend: 'copy',  
+                        className: 'btn btn-light rounded-0 border m-1',  
+                        text: '<i class="fa fa-clipboard"></i> Copy' 
+                    },  
+                    {  
+                        extend: 'excel',  
+                        className: 'btn btn-light rounded-0 border m-1',  
+                        text: '<i class="fa fa-file-excel-o"></i> Excel'  
+                    },  
+                    {  
+                        extend: 'pdf',  
+                        className: 'btn btn-light rounded-0 border m-1',  
+                        text: '<i class="fa fa-file-pdf-o"></i> Pdf'  
+                    },  
+                    {  
+                        extend: 'csv',  
+                        className: 'btn btn-light rounded-0 border m-1',  
+                        text: '<i class="fa fa-file"></i> CSV'  
+                    },  
+                    {  
+                        extend: 'print',  
+                        className: 'btn btn-light rounded-0 border m-1',  
+                        text: '<i class="fa fa-print"></i> Print'  
+                    }  
+                ]  
         });
 
         function generatePDF() {
@@ -59,3 +89,5 @@
     }
 </script>
         }
+
+
