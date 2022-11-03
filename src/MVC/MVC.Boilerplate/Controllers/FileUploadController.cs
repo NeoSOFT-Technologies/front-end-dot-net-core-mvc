@@ -73,7 +73,7 @@ namespace MVC.Boilerplate.Controllers
             FileUploadErrorMessage fileUploadErrorMessage = new FileUploadErrorMessage();
             try
             {
-                var supportedTypes = new[] { "txt", "doc", "docx", "pdf", "xls", "xlsx" };
+                var supportedTypes = new[] { "csv", "jpg", "jpeg", "png", "pdf", "xls", "xlsx" };
                 var fileExt = System.IO.Path.GetExtension(fileUploadModel.File.FileName).Substring(1);
                 if (!supportedTypes.Contains(fileExt))
                 {
