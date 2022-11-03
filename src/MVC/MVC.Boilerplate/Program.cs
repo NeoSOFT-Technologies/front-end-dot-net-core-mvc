@@ -60,6 +60,7 @@ app.UseSerilogRequestLogging();
 app.UseSession();
 app.UseRouting();
 app.UseCustomExceptionHandler();
+app.UseAuthMiddleware();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",

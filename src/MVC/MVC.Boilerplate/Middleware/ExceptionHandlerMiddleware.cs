@@ -33,8 +33,6 @@ namespace MVC.Boilerplate.Middleware
 
             context.Response.ContentType = "application/json";
 
-            var result = string.Empty;
-
             switch (exception)
             {
                 case ValidationException validationException:
