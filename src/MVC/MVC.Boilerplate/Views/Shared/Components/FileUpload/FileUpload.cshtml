@@ -23,6 +23,12 @@
                 }
             </div>
         </div>
+
+        <input type="hidden" id="FileEx" value="@ViewBag.AllowedEx">
+         <input type="hidden" id="FileSize" value="@ViewBag.Size">
+          <input type="hidden" id="FileNotAllowedMess" value="@ViewBag.FileErrMess">
+           <input type="hidden" id="FileSizeMessage" value="@ViewBag.SizeErrMess">
+
         @*<div>@Html.ActionLink("", "Delete", new { fileName = @ViewData["FileUploadName"] })<span><i class="btn btn-danger fa fa-trash"></i></span></div>*@
  </div>
  </div>

@@ -13,11 +13,14 @@ namespace MVC.Boilerplate.Controllers
         private readonly ILogger<FileUploadController> _logger;
         private readonly IWebHostEnvironment webHostEnvironment;
         private readonly INotyfService _notyf;
-        public FileUploadController(ILogger<FileUploadController> logger, INotyfService notyf, IWebHostEnvironment webHost)
+        private readonly IConfiguration _configuration;
+
+        public FileUploadController(ILogger<FileUploadController> logger, INotyfService notyf, IWebHostEnvironment webHost, IConfiguration configuration)
         {
             _logger = logger;
             webHostEnvironment = webHost;
             _notyf = notyf;
+            _configuration = configuration;
         }
 
         public IActionResult Index(FileUploadModel fileUploadModel)
@@ -28,7 +31,8 @@ namespace MVC.Boilerplate.Controllers
             if (fileUploadModel.File != null)
 
                 ViewData["File"] = fileUploadModel.File.FileName;
-
+            var file= _configuration.GetSection("FileUploadSettings").GetSection("Disclaimer").GetSection("AllowedFiles").Value;
+            ViewBag.TypeDisclaimer = file.ToString(); 
             return View();
         }
 
@@ -40,6 +44,7 @@ namespace MVC.Boilerplate.Controllers
             {
                 FileUploadErrorMessage fileUploadErrorMessage = new FileUploadErrorMessage();
                 fileUploadErrorMessage.filesize = 32;
+                var filename = _configuration.GetSection("FileUploadSettings").GetSection("FilePath").Value;
                 string us = FileValidation(fileUploadModel);
                 if (us != null)
                 {
@@ -48,7 +53,7 @@ namespace MVC.Boilerplate.Controllers
                 }
                 else
                 {
-                    string uploadFolder = Path.Combine(webHostEnvironment.WebRootPath, "FileFolder");
+                    string uploadFolder = Path.Combine(webHostEnvironment.WebRootPath, $"{filename}");
                     uniqueFileName = Guid.NewGuid().ToString() + "_" + fileUploadModel.File.FileName;
                     if (!Directory.Exists(uploadFolder))
                     {
@@ -71,17 +76,19 @@ namespace MVC.Boilerplate.Controllers
         public string FileValidation(FileUploadModel fileUploadModel)
         {
             FileUploadErrorMessage fileUploadErrorMessage = new FileUploadErrorMessage();
+            fileUploadErrorMessage.filesize = Convert.ToInt32(_configuration.GetSection("FileUploadSettings").GetSection("MaxFileSizeMb").Value);
             try
             {
-                var supportedTypes = new[] { "csv", "jpg", "jpeg", "png", "pdf", "xls", "xlsx" };
+                var supportedTypes = _configuration.GetSection("FileUploadSettings").GetSection("AllowedFileExtension").Value;
+                var fileTypes= supportedTypes.Split(',');
                 var fileExt = System.IO.Path.GetExtension(fileUploadModel.File.FileName).Substring(1);
-                if (!supportedTypes.Contains(fileExt))
+                if (!fileTypes.Contains(fileExt))
                 {
-                    fileUploadErrorMessage.ErrorMessage = "File Extension Is InValid - Only Upload CSV/PDF/EXCEL/TXT/IMAGE File";
+                    fileUploadErrorMessage.ErrorMessage = _configuration.GetSection("FileUploadSettings").GetSection("FileNotAllowedErrorMessage").Value;
                 }
-                else if (fileUploadModel.File.Length > (fileUploadErrorMessage.filesize * 1024))
+                else if (fileUploadModel.File.Length > (fileUploadErrorMessage.filesize * 1024 * 1024))
                 {
-                    fileUploadErrorMessage.ErrorMessage = "File size Should Be UpTo " + fileUploadErrorMessage.filesize + "KB";
+                    fileUploadErrorMessage.ErrorMessage = _configuration.GetSection("FileUploadSettings").GetSection("FileSizeExceedErrorMessage").Value;
                 }
                 else
                 {
