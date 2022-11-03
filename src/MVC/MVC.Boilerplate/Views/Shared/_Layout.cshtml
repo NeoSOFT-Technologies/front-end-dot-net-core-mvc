@@ -15,14 +15,15 @@
     <link href="~/css/Dropdown.css" rel="stylesheet">
 
     <link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.css" />
-
-
+    <link rel="stylesheet" href="~/lib/datatables/css/dataTables.bootstrap4.min.css" />
+    @*<link rel="stylesheet" href="~/lib/datatables/css/buttons.min.css" />*@
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" />
 </head>
 <body>
     @*@if (@ViewBag.UserName != null)
         {*@
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">NeoSOFT Technology</a>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" asp-controller="Home" asp-action="Index">NeoSOFT Technology</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -65,7 +66,7 @@
                                 Events
                             </a>
                         </li>  
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link" asp-controller="GeneratePDF" asp-action="Index">
                                 <span data-feather="file-plus" class="align-text-bottom"></span>
                                 Generate PDF
@@ -73,22 +74,32 @@
                         </li>  
                         </li>
                         
-                        @*  <li class="nav-item">
-                            <a class="nav-link" asp-controller="FileUploader" asp-action="FileUpload">
-                                <span data-feather="file" class="align-text-bottom"></span>
-                                File Upload(old)
-                            </a>
-                        </li>*@
+            
                          <li class="nav-item">
                             <a class="nav-link" asp-controller="FileUpload" asp-action="Index">
                                 <span data-feather="upload" class="align-text-bottom"></span>
                                 Upload File
                             </a>
-                        </li>
+                        </li>*@
+                        <ul class="list-unstyled ps-0">
+                            <li class="mb-1">
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#file-operations" aria-expanded="false">&nbsp;
+                                    <span class="align-text-bottom"></span>File Operations
+                                </button>
+                                <div class="collapse" id="file-operations">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a  asp-controller="GeneratePDF" asp-action="Index" class="link-dark d-inline-flex text-decoration-none rounded"><span data-feather="file-plus" class="align-text-bottom"></span> &emsp;
+                                Generate PDF</a></li>
+                                        <li><a asp-controller="FileUpload" asp-action="Index" class="link-dark d-inline-flex text-decoration-none rounded"><span data-feather="upload" class="align-text-bottom"></span> &emsp;
+                                Upload File</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                         <ul class="list-unstyled ps-0">
                             <li class="mb-1">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Lazy-collapse" aria-expanded="false">&nbsp;
-                                    <span data-feather="loader" class="align-text-bottom"></span> &emsp; Lazy Loading
+                                    <span class="align-text-bottom"></span>Lazy Loading
                                 </button>
                                 <div class="collapse" id="Lazy-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -136,6 +147,15 @@
     <script src="~/scripts/layout.js"></script>
     <script src="~/scripts/delete.js"></script>
     <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+
+<script src="~/lib/datatables/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/datatables/js/jszip.min.js"></script>
+    <script src="~/lib/datatables/js/pdfmake.min.js"></script>
+    <script src="~/lib/datatables/js/vfs_fonts.min.js"></script>
+    <script src="~/lib/datatables/js/buttons.html5.min.js"></script>
+    <script src="~/lib/datatables/js/buttons.print.min.js"></script>
+    <script src="~/lib/datatables/js/buttons.colVis.min.js"></script>
     @await Component.InvokeAsync("Notyf")
     @await RenderSectionAsync("Scripts", required: false)
 </body>

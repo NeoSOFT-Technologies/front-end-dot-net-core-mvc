@@ -7,18 +7,18 @@ namespace MVC.Boilerplate.Services
     public class LazyService:ILazyService
     {
         private readonly ILogger<LazyService> _logger;
-        private readonly string _basePath = (System.IO.Directory.GetCurrentDirectory() + "\\wwwroot\\lazyLoading");
-
-        public LazyService(ILogger<LazyService> logger)
+        private readonly string _basePath;
+        public LazyService(ILogger<LazyService> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _basePath = configuration.GetSection("LazyLoadingSourcePath").Value;
         }
 
         public async Task<List<Person>> PersonList()
         {
             _logger.LogInformation("PersonList of Lazy Service executed");
 
-            string path = _basePath+"\\Persons.txt";
+            string path = _basePath+"/Persons.txt";
             List<Person> PersonList = new List<Person>();
             string[] Persons = await File.ReadAllLinesAsync(path);
             foreach (string line in Persons)
@@ -64,7 +64,7 @@ namespace MVC.Boilerplate.Services
         {
 
             //Setting path for persons txt file
-            string path = _basePath +"\\Animals.txt";
+            string path = _basePath +"/Animals.txt";
             string path2 = AppDomain.CurrentDomain.BaseDirectory;
             return await File.ReadAllLinesAsync(path);
         }  
