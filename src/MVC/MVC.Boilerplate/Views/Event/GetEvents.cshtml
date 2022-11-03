@@ -46,20 +46,21 @@
                                 <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">@item.Date</td>
                                 <td>
                                     <a class="btn btn-sm btn-success " href="@Url.Action("UpdateEvent", "Event", new { id = item.EventId })"><i class="fa fa-pencil"></i>&nbsp;Edit</a>
-                                    <a class="btn btn-sm btn-danger deleteEvent" data-bs-toggle="modal" data-bs-target="#deleteEventConfirmModal" id=@("deleteEvent"+item.EventId)>&nbsp;Delete</a>
-                                   @* <a class="btn btn-sm btn-danger delete"
+                                    @*<a class="btn btn-sm btn-danger deleteEvent" data-bs-toggle="modal" data-bs-target="#deleteEventConfirmModal" id=@("deleteEvent"+item.EventId)>&nbsp;Delete</a>*@
+                                    <a class="btn btn-sm btn-danger delete"
                                    data-bs-toggle="modal" data-bs-target="#deleteModal"
                                    data-id="@item.EventId"
                                    data-controller="Event"
                                    data-action="DeleteEvent"
                                    data-label="Delete Event"
+                                   data-action-Type="DELETE"
                                    data-body-message="Are you sure to delete this Event record?"
                                    data-action-url="@(@Url.Action("DeleteEvent","Event", new {eventId=@item.EventId}))">
                                         Delete <i class="fas fa-trash alt"></i>
 
-                                    </a>*@
+                                    </a>
                                 </td>
-                                <div class="modal" id="deleteEventConfirmModal" tabindex="-1" aria-labelledby="deleteEventConfirmModalLabel" aria-hidden="true">
+                                @*<div class="modal" id="deleteEventConfirmModal" tabindex="-1" aria-labelledby="deleteEventConfirmModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -75,7 +76,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>*@
                             </tr>
                         }
                     </tbody>
@@ -87,28 +88,28 @@
 
 @section Scripts{
 <script>
-     $('.deleteEvent').on('click', function(e){
-                    $('.deleteBtn').attr("id",$(this).attr("id").substring(11));
-                });
-                $('.deleteBtn').on('click', function(e){
-                    var id = $(this).attr("id");
-                    console.log(id);
-                    var isSuccess = false;
-                $.ajax({
-                            type: "DELETE",
-                            url: '@Url.Action("DeleteEvent","Event")'+"?eventId="+id,
-                            contentType: "application/json;charset=utf-8",
-                            success: ()=>
-                            {
-                                isSuccess = true;
-                                //location.reload();
-                                toastNotifySuccess("Event Deleted Successfully");
-                            },
-                            complete:()=>{
-                                if(isSuccess)$("#deleteEvent"+id).parent().parent().hide();
-                            }
-                        });
-            });
+     //$('.deleteEvent').on('click', function(e){
+     //               $('.deleteBtn').attr("id",$(this).attr("id").substring(11));
+     //           });
+     //           $('.deleteBtn').on('click', function(e){
+     //               var id = $(this).attr("id");
+     //               console.log(id);
+     //               var isSuccess = false;
+     //           $.ajax({
+     //                       type: "DELETE",
+     //                       url: '@Url.Action("DeleteEvent","Event")'+"?eventId="+id,
+     //                       contentType: "application/json;charset=utf-8",
+     //                       success: ()=>
+     //                       {
+     //                           isSuccess = true;
+     //                           //location.reload();
+     //                           toastNotifySuccess("Event Deleted Successfully");
+     //                       },
+     //                       complete:()=>{
+     //                           if(isSuccess)$("#deleteEvent"+id).parent().parent().hide();
+     //                       }
+     //                   });
+     //       });
 
 
     var table = $('#table_id').DataTable({
