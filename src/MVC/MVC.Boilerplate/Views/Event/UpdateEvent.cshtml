@@ -7,8 +7,10 @@
         <div class="align-items-center">
             <h3>@ViewData["Title"]</h3>
             <form asp-controller="Event" asp-action="UpdateEvent">
-                <button type="submit" class="btn btn-md btn-primary d-flex float-end mb-2">Submit</button>
-                <input type="button" value="Cancel" class="btn btn-danger d-flex float-end mb-2" onclick="location.href='@Url.Action("GetEvents", "Event")'">
+                <div class="form-group float-end m-2">
+                <input type="button" value="Cancel" class="btn btn-danger" onclick="location.href='@Url.Action("GetEvents", "Event")'">
+                <button type="submit" class="btn btn-md btn-primary">Submit</button>
+                </div>
                 <div class="form-group ">
                     <input type="text" class="form-control" hidden asp-for="EventId" placeholder="Event Id">
                     <span asp-validation-for="EventId" class="text-danger"></span>
@@ -30,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Date" class="control-label fw-bold text-dark">Date</label>
-                    <input type="datetime-local" class="form-control" asp-for=Date placeholder="Enter Date">
+                    <input type="datetime-local" step="any" class="form-control" asp-for=Date placeholder="Enter Date">
                     <span asp-validation-for="Date" class="text-danger"></span>
                 </div>
                 <div class="form-group">
