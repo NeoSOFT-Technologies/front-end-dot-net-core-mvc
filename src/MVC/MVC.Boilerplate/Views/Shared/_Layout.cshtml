@@ -66,7 +66,7 @@
                                 Events
                             </a>
                         </li>  
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link" asp-controller="GeneratePDF" asp-action="Index">
                                 <span data-feather="file-plus" class="align-text-bottom"></span>
                                 Generate PDF
@@ -74,18 +74,28 @@
                         </li>  
                         </li>
                         
-                        @*  <li class="nav-item">
-                            <a class="nav-link" asp-controller="FileUploader" asp-action="FileUpload">
-                                <span data-feather="file" class="align-text-bottom"></span>
-                                File Upload(old)
-                            </a>
-                        </li>*@
+            
                          <li class="nav-item">
                             <a class="nav-link" asp-controller="FileUpload" asp-action="Index">
                                 <span data-feather="upload" class="align-text-bottom"></span>
                                 Upload File
                             </a>
-                        </li>
+                        </li>*@
+                        <ul class="list-unstyled ps-0">
+                            <li class="mb-1">
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#file-operations" aria-expanded="false">&nbsp;
+                                    <span class="align-text-bottom"></span>File Operations
+                                </button>
+                                <div class="collapse" id="file-operations">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a  asp-controller="GeneratePDF" asp-action="Index" class="link-dark d-inline-flex text-decoration-none rounded"><span data-feather="file-plus" class="align-text-bottom"></span> &emsp;
+                                Generate PDF</a></li>
+                                        <li><a asp-controller="FileUpload" asp-action="Index" class="link-dark d-inline-flex text-decoration-none rounded"><span data-feather="upload" class="align-text-bottom"></span> &emsp;
+                                Upload File</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                         <ul class="list-unstyled ps-0">
                             <li class="mb-1">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#Lazy-collapse" aria-expanded="false">&nbsp;
