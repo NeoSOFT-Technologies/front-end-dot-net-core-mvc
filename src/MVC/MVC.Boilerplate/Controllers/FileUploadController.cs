@@ -29,10 +29,15 @@ namespace MVC.Boilerplate.Controllers
             UploadFile(fileUploadModel);
 
             if (fileUploadModel.File != null)
-
                 ViewData["File"] = fileUploadModel.File.FileName;
-            var file= _configuration.GetSection("FileUploadSettings").GetSection("Disclaimer").GetSection("AllowedFiles").Value;
-            ViewBag.TypeDisclaimer = file.ToString(); 
+
+            var file = _configuration.GetSection("FileUploadSettings").GetSection("Disclaimer").GetSection("AllowedFiles").Value;
+            ViewBag.TypeDisclaimer = _configuration["FileUploadSettings:Disclaimer:AllowedFiles"];
+            ViewBag.SizeDisclaimer = _configuration.GetSection("FileUploadSettings").GetSection("Disclaimer").GetSection("MaxSize").Value;
+
+
+
+
             return View();
         }
 
