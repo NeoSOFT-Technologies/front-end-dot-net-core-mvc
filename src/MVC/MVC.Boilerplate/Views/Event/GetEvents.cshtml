@@ -43,7 +43,7 @@
                             <tr>
                                 <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">@item.Name</td>
                                 <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">@item.ImageUrl</td>
-                                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">@item.Date</td>
+                                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">@item.Date.ToShortDateString()</td>
                                 <td>
                                     <a class="btn btn-sm btn-success " href="@Url.Action("UpdateEvent", "Event", new { id = item.EventId })"><i class="fa fa-pencil"></i>&nbsp;Edit</a>
                                     @*<a class="btn btn-sm btn-danger deleteEvent" data-bs-toggle="modal" data-bs-target="#deleteEventConfirmModal" id=@("deleteEvent"+item.EventId)>&nbsp;Delete</a>*@
