@@ -56,9 +56,10 @@ Delete Modal Popup
 
 
 Error Handler
+![globalHandler](https://user-images.githubusercontent.com/92291258/199909908-4332f3ee-6cd8-46a7-b5f4-8c58ce6189bc.png)
+![Error401](https://user-images.githubusercontent.com/92291258/199909915-47f8f93a-1162-4c02-bd77-48652ac6b902.png)
 
-![erropage nav](https://user-images.githubusercontent.com/92291258/198273258-5faf1d4e-bdbc-48e3-8333-cb266d65cdc5.png)
-![error page](https://user-images.githubusercontent.com/92291258/198273285-43ed958f-a88b-4353-a929-7f10b5ad47ec.png)
+
 
 
 # Server-Side Pagination
