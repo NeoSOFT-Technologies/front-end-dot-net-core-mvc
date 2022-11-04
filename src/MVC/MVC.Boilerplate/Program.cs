@@ -60,9 +60,10 @@ app.UseSerilogRequestLogging();
 app.UseSession();
 app.UseRouting();
 app.UseCustomExceptionHandler();
+app.UseAuthMiddleware();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();

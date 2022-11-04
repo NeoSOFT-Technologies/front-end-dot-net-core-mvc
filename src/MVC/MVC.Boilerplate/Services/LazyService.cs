@@ -7,17 +7,18 @@ namespace MVC.Boilerplate.Services
     public class LazyService:ILazyService
     {
         private readonly ILogger<LazyService> _logger;
-
-        public LazyService(ILogger<LazyService> logger)
+        private readonly string _basePath;
+        public LazyService(ILogger<LazyService> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _basePath = configuration.GetSection("LazyLoadingSourcePath").Value;
         }
+
         public async Task<List<Person>> PersonList()
         {
             _logger.LogInformation("PersonList of Lazy Service executed");
-            //Setting path for persons txt file
-            string path = (System.IO.Directory.GetCurrentDirectory() + "\\Static\\Persons.txt");
-            string path2 = AppDomain.CurrentDomain.BaseDirectory;
+
+            string path = _basePath+"/Persons.txt";
             List<Person> PersonList = new List<Person>();
             string[] Persons = await File.ReadAllLinesAsync(path);
             foreach (string line in Persons)
@@ -39,7 +40,7 @@ namespace MVC.Boilerplate.Services
             _logger.LogInformation("AnimalList of Lazy Service executed");
 
             List<Animal> AnimalList = new List<Animal>();
-            string[] Animals = await AnimalArr();
+            string[] Animals = await GetAnimals();
             foreach (string line in Animals)
             {
                 var data = line.Split(',');
@@ -57,28 +58,29 @@ namespace MVC.Boilerplate.Services
         public async Task<int> AnimalsCount()
         {
             _logger.LogInformation("AnimalsCount of Lazy Service executed");
-            return (await AnimalArr()).Length;
+            return (await GetAnimals()).Length;
         }
-        async Task<string[]> AnimalArr()
+        async Task<string[]> GetAnimals()
         {
 
             //Setting path for persons txt file
-            string path = (System.IO.Directory.GetCurrentDirectory() + "\\Static\\Animals.txt");
+            string path = _basePath +"/Animals.txt";
             string path2 = AppDomain.CurrentDomain.BaseDirectory;
             return await File.ReadAllLinesAsync(path);
         }  
+
         // Read File and get data in string
-        //async static Task<string> ReadFromFile(string DirectoryPath, string FileName)
-        //{
-        //    if (Directory.Exists(DirectoryPath))
-        //    {
-        //        string FilePath = DirectoryPath + "\\" + FileName;
-        //        if (File.Exists(FilePath))
-        //        {
-        //            return await File.ReadAllTextAsync(FilePath);
-        //        }
-        //    }
-        //    return "";
-        //}
+        async static Task<string> ReadFromFile(string DirectoryPath, string FileName)
+        {
+            if (Directory.Exists(DirectoryPath))
+            {
+                string FilePath = DirectoryPath + "\\" + FileName;
+                if (File.Exists(FilePath))
+                {
+                    return await File.ReadAllTextAsync(FilePath);
+                }
+            }
+            return "";
+        }
     }
 }

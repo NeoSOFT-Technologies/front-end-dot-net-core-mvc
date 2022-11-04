@@ -30,15 +30,20 @@ function fileValidation() {
     let header;
     var fileInput = document.getElementById('FL');
     var filePath = fileInput.value;
+    var fileExtension = filePath.split(".").pop();
+    var fileAllowedExtension = document.getElementById('FileEx').value;
+    var fileAllowedSize = document.getElementById('FileSize').value;
+    var fileTypeError = document.getElementById('FileNotAllowedMess').value;
+    var FileSizeError = document.getElementById('FileSizeMessage').value;
     // var x=true;
 
     // Allowing file type
-    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.csv|\.xls|\.xlsx|\.pdf)$/i;
+    
 
-    if (!allowedExtensions.exec(filePath)) {
+    if (!fileAllowedExtension.includes(fileExtension)) {
         header = document.querySelector("#spnFilePath").innerText = "";
         header = document.querySelector("#spnFileName");
-        header.innerText = "Failed to upload !! Please upload csv,jpg, jpeg, png, pdf file only.";
+        header.innerText = fileTypeError;
         // x = false;
         fileInput.value = '';
         return false;
@@ -48,12 +53,14 @@ function fileValidation() {
     }
     if (FL.files.length > 0) {
         for (const i = 0; i <= FL.files.length - 1; i++) {
+            const size = (fileAllowedSize * 1024 * 1024)
             const fsize = FL.files.item(i).size;
+            
             const file = Math.round((fsize / 1024));
 
-            if (fsize >= 32768) {
+            if (fsize >= size) {
                 header = document.querySelector("#spnFilePath").innerText = "";
-                header = document.querySelector("#spnFileName").innerText = "Failed to upload !! Max allowed file size is 32kb";
+                header = document.querySelector("#spnFileName").innerText = FileSizeError;
                 //     x = false;
                 fileInput.value = '';
                 return false;

@@ -7,8 +7,11 @@
         <div class="align-items-center">
             <h3>@ViewData["Title"]</h3>
             <form asp-controller="Event" asp-action="CreateEvent">
-                <button type="submit" class="btn btn-md btn-primary d-flex float-end mb-2">Submit</button>
-                <div class="form-group ">
+                <div class="form-group float-end m-2">
+                <input type="button" value="Cancel" class="btn btn-danger" onclick="location.href='@Url.Action("GetEvents", "Event")'">
+                <button type="submit" class="btn btn-md btn-primary">Submit</button>
+                </div>
+                 <div class="form-group ">
                     <label class="control-label fw-bold text-dark">Name</label>
                     <input type="text" class="form-control" asp-for=Name placeholder="Event Name">
                     <span asp-validation-for="Name" class="text-danger"></span>
