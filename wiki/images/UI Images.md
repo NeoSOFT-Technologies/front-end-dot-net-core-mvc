@@ -41,7 +41,6 @@ Delete Modal Popup
 ![GenericModalPopupConfirm](https://user-images.githubusercontent.com/88362571/199811728-c39b3d7e-30ae-4a31-874d-92ff87c1d3e6.png)
 ![GenericModalPopup](https://user-images.githubusercontent.com/88362571/199811781-f7908572-abaa-48a5-a48c-5b42f22ce68a.png)
 
-
 Fileupload
 ![fileUpload1](https://user-images.githubusercontent.com/88362571/199823816-f9794516-767f-4b76-958d-994949e2b9f2.png)
 ![fileUpload2](https://user-images.githubusercontent.com/88362571/199823818-18decd30-2f4e-4870-a1f3-213339121fa6.png)
@@ -50,6 +49,11 @@ Fileupload
 ![fileUploadExtensionError](https://user-images.githubusercontent.com/88362571/199823825-1f79912a-5f96-4e86-b6f1-7557b294c086.png)
 ![fileUploadSucccess1](https://user-images.githubusercontent.com/88362571/199823832-0e3bec53-e06d-4e35-b356-293f6e90a857.png)
 ![fileUploadSucccess](https://user-images.githubusercontent.com/88362571/199823828-0a4b8be3-5757-455b-88be-b57b9a2cce1a.png)
+
+Delete Modal Popup
+![DeleteEventPopup1](https://user-images.githubusercontent.com/88362571/198540442-1fb64097-06cf-43ce-8450-f62158baea6f.png)
+![DeleteEventSuccess](https://user-images.githubusercontent.com/88362571/198540557-cad6b08f-7923-4a4c-8249-330cea375ad6.png)
+
 
 Error Handler
 
