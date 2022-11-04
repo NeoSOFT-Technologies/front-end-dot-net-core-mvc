@@ -59,6 +59,8 @@ FileExport with Datatable
 
 Lazy Loading
 ![LazyLoading-Dropdown](https://user-images.githubusercontent.com/92164758/199917680-477fc9ef-d801-4c5b-a99b-17fd228a4394.png)
+![LazyLoading-Scroll-GIF](https://user-images.githubusercontent.com/92164758/199920060-1289304c-66cd-419f-9f00-788e3b228630.gif)
+![LazyLoading-AsyncLoad-GIF](https://user-images.githubusercontent.com/92164758/199922580-b2a119e4-b7ec-4295-9e95-17aadb9ad82a.gif)
 
 Delete Modal Popup
 ![DeleteEventPopup1](https://user-images.githubusercontent.com/88362571/198540442-1fb64097-06cf-43ce-8450-f62158baea6f.png)
