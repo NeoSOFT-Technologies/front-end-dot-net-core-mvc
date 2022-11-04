@@ -5,7 +5,7 @@
         <div class="custom-file">
             <input asp-for="@Model" type="file" name="@Model" class="custom-file-input" id="FL" accept="image/*,.pdf,.csv" onchange="return fileValidation();" style="display: none" />
            
-            <span id="btnSubmit" class="btn btn-info border border-dark ">Select File</span>
+             <span data-toggle="tooltip" data-placement="right" title="Only (jpg,jpeg,png,csv,pdf) files up to 1MB allowed."><span id="btnSubmit" class="btn btn-info border border-dark ">Select File</span></span>
            <span> <button type="submit" id="btnUpload" class="btn btn-outline-secondary mx-2" disabled>Upload</button></span>
             <div class="mt-2" id="spnFilePath"></div>
             <p id ="spnFileName" class="text-danger"></p>
