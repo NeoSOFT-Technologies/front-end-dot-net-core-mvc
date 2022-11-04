@@ -50,6 +50,8 @@ Fileupload
 ![FileUpload](https://user-images.githubusercontent.com/87525401/199916383-96251764-672d-43c8-8e4e-fc194d6df958.png)
 ![SizeError](https://user-images.githubusercontent.com/87525401/199916995-e2de7edd-a7ca-428f-96cd-66c2a2a9075a.PNG)
 ![TypeError](https://user-images.githubusercontent.com/87525401/199917497-e1e69f6d-fd76-4c23-ad61-e3096730e028.PNG)
+![FileEnable](https://user-images.githubusercontent.com/87525401/199918220-73451c92-8a32-4566-b39f-6d56e66b599e.PNG)
+![FileSuccess](https://user-images.githubusercontent.com/87525401/199918679-201c34eb-ca88-4549-815e-12de5ed6af18.png)
 
 
 
