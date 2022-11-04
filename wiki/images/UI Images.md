@@ -63,6 +63,7 @@ Lazy Loading
 Delete Modal Popup
 ![DeleteEventPopup1](https://user-images.githubusercontent.com/88362571/198540442-1fb64097-06cf-43ce-8450-f62158baea6f.png)
 ![DeleteEventSuccess](https://user-images.githubusercontent.com/88362571/198540557-cad6b08f-7923-4a4c-8249-330cea375ad6.png)
+![EventModule](https://user-images.githubusercontent.com/88362571/199923637-6cea5158-ae0d-4b6c-ae13-3c1ae490d704.png)
 
 
 Error Handler
