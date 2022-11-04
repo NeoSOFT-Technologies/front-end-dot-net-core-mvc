@@ -52,6 +52,7 @@ Fileupload
 ![TypeError](https://user-images.githubusercontent.com/87525401/199917497-e1e69f6d-fd76-4c23-ad61-e3096730e028.PNG)
 ![FileEnable](https://user-images.githubusercontent.com/87525401/199918220-73451c92-8a32-4566-b39f-6d56e66b599e.PNG)
 ![FileSuccess](https://user-images.githubusercontent.com/87525401/199918679-201c34eb-ca88-4549-815e-12de5ed6af18.png)
+![FileDownload](https://user-images.githubusercontent.com/87525401/199918996-37a9df0f-3810-4f3d-aef3-08e726aaff84.PNG)
 
 
 
