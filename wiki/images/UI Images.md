@@ -14,7 +14,8 @@ Login
 
 ![loginValidation](https://user-images.githubusercontent.com/87525401/198282423-3dfe9add-e9d3-45c4-808c-95f924650920.PNG)
 
-![Dashboard](https://user-images.githubusercontent.com/87525401/199660998-4db96306-beea-45ca-9eda-22176e0451a2.png)
+![Dashboard](https://user-images.githubusercontent.com/87525401/199916242-abf9db8c-201c-4c43-93bc-cfb6fd88e66a.png)
+
 
 ![errorLogin](https://user-images.githubusercontent.com/87525401/198285014-9517962d-81d4-4d97-86f4-b6dafae2397c.PNG)
 
@@ -45,6 +46,10 @@ Delete Modal Popup
 ![GenericModalPopup](https://user-images.githubusercontent.com/88362571/199811781-f7908572-abaa-48a5-a48c-5b42f22ce68a.png)
 
 Fileupload
+![fileUploadComponent](https://user-images.githubusercontent.com/87525401/199916285-1af22b91-1998-4258-b686-ab967a12fdb5.png)
+
+
+
 ![fileUpload1](https://user-images.githubusercontent.com/88362571/199823816-f9794516-767f-4b76-958d-994949e2b9f2.png)
 ![fileUpload2](https://user-images.githubusercontent.com/88362571/199823818-18decd30-2f4e-4870-a1f3-213339121fa6.png)
 ![fileUploadAccepted](https://user-images.githubusercontent.com/88362571/199823822-f2fffe2c-9496-47c7-a615-5db9d352028d.png)
