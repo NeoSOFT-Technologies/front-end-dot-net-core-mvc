@@ -38,7 +38,7 @@ function fileValidation() {
     // var x=true;
 
     // Allowing file type
-    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.csv|\.xls|\.xlsx|\.pdf)$/i;
+    
 
     if (!fileAllowedExtension.includes(fileExtension)) {
         header = document.querySelector("#spnFilePath").innerText = "";

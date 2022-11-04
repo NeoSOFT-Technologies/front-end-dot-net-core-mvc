@@ -1,5 +1,5 @@
 ﻿@model MVC.Boilerplate.Models.FileUpload.FileUploadModel
-  @* <h3>index fileupload</h3>*@
+
   <style>
       .bd-callout-info{
           border: 1px solid #eee;
@@ -21,20 +21,19 @@
   </div>
   <div class="col-5 card border border-dark rounded m-20 mx-auto"> 
       <div class="card-header">File Upload &nbsp;
-          <span data-toggle="tooltip" data-placement="right" title="Only (jpg,jpeg,png,csv,xls,xlsx,pdf) files up to 1MB allowed."><i class="fa fa-info-circle"></i></span></div>
+          <span data-toggle="tooltip" data-placement="right" title="Only (jpg,jpeg,png,csv,pdf) files up to 1MB allowed."><i class="fa fa-info-circle"></i></span></div>
       <div class="card-body">
  <form enctype="multipart/form-data" method="post">
     <vc:file-upload field-name="@nameof(Model.File)"></vc:file-upload>
 
-  <button type="submit" id="btnUpload" class="mb-1" disabled>Upload</button>
 
-     <div class="mt-2 mb-2 bd-callout-info">
+     <div class="my-2 mb-2 bd-callout-info">
          <div class="px-2 pt-2"><b>Note: </b><br />
              <ul><li>@ViewBag.TypeDisclaimer</li>
                  <li>@ViewBag.SizeDisclaimer</li></ul>
                  </div></div>
     
-   @* <div class="text-info font-weight-bold mt-2">Note: Please select the file of size 32Kb and of type .jpg,.jpeg,.png,.csv,.xls,.xlsx,.pdf </div>*@
+   
     </form>
     </div>
     </div>
