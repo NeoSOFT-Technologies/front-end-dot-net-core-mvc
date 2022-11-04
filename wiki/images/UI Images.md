@@ -24,6 +24,9 @@ Login
 # Category
 
 ![image](https://user-images.githubusercontent.com/87525401/199921110-8c861c6e-1e8a-497a-8bfc-0a0ace18794c.png)
+![Business](https://user-images.githubusercontent.com/87525401/199921876-d777a636-d971-4f6b-8481-c6f7821905c5.PNG)
+
+
 
 ![CategoryGrid](https://user-images.githubusercontent.com/88362571/199918544-8be24ff2-3a34-4ecd-90b5-30bb9bdf8871.PNG)
 
