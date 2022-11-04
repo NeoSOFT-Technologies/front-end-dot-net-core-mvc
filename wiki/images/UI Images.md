@@ -51,8 +51,7 @@ Fileupload
 ![SizeError](https://user-images.githubusercontent.com/87525401/199916995-e2de7edd-a7ca-428f-96cd-66c2a2a9075a.PNG)
 ![TypeError](https://user-images.githubusercontent.com/87525401/199917497-e1e69f6d-fd76-4c23-ad61-e3096730e028.PNG)
 
-Lazy Loading
-![LazyLoading-Dropdown](https://user-images.githubusercontent.com/92164758/199917680-477fc9ef-d801-4c5b-a99b-17fd228a4394.png)
+
 
 
 ![fileUpload1](https://user-images.githubusercontent.com/88362571/199823816-f9794516-767f-4b76-958d-994949e2b9f2.png)
@@ -62,6 +61,9 @@ Lazy Loading
 ![fileUploadExtensionError](https://user-images.githubusercontent.com/88362571/199823825-1f79912a-5f96-4e86-b6f1-7557b294c086.png)
 ![fileUploadSucccess1](https://user-images.githubusercontent.com/88362571/199823832-0e3bec53-e06d-4e35-b356-293f6e90a857.png)
 ![fileUploadSucccess](https://user-images.githubusercontent.com/88362571/199823828-0a4b8be3-5757-455b-88be-b57b9a2cce1a.png)
+
+Lazy Loading
+![LazyLoading-Dropdown](https://user-images.githubusercontent.com/92164758/199917680-477fc9ef-d801-4c5b-a99b-17fd228a4394.png)
 
 Delete Modal Popup
 ![DeleteEventPopup1](https://user-images.githubusercontent.com/88362571/198540442-1fb64097-06cf-43ce-8450-f62158baea6f.png)
