@@ -48,6 +48,7 @@ Delete Modal Popup
 Fileupload
 ![fileUploadComponent](https://user-images.githubusercontent.com/87525401/199916285-1af22b91-1998-4258-b686-ab967a12fdb5.png)
 ![FileUpload](https://user-images.githubusercontent.com/87525401/199916383-96251764-672d-43c8-8e4e-fc194d6df958.png)
+![SizeError](https://user-images.githubusercontent.com/87525401/199916995-e2de7edd-a7ca-428f-96cd-66c2a2a9075a.PNG)
 
 
 
