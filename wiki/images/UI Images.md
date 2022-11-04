@@ -35,13 +35,25 @@ Login
 ![update toaster](https://user-images.githubusercontent.com/92291258/198346801-7984728d-560f-4a0a-9b6b-769cf7b1a8fe.png)
 
 Delete Modal Popup
-![DeleteEventPopup](https://user-images.githubusercontent.com/88362571/198538944-b0f7bc62-0b58-4a92-a0b3-792fd9217efb.PNG)
-![DeleteEventSuccess](https://user-images.githubusercontent.com/88362571/198539016-d16d81e8-4cb6-40ce-b795-d7dc18f7a071.png)
 
+![GenericModal1](https://user-images.githubusercontent.com/88362571/199811724-71b525ee-61ea-40b5-ad5d-36114ff02db2.png)
+![GenericModal2](https://user-images.githubusercontent.com/88362571/199811761-544088a2-a63d-4dea-bc48-49fac2730d43.png)
+![GenericModalPopupConfirm](https://user-images.githubusercontent.com/88362571/199811728-c39b3d7e-30ae-4a31-874d-92ff87c1d3e6.png)
+![GenericModalPopup](https://user-images.githubusercontent.com/88362571/199811781-f7908572-abaa-48a5-a48c-5b42f22ce68a.png)
 
 Fileupload
+![fileUpload1](https://user-images.githubusercontent.com/88362571/199823816-f9794516-767f-4b76-958d-994949e2b9f2.png)
+![fileUpload2](https://user-images.githubusercontent.com/88362571/199823818-18decd30-2f4e-4870-a1f3-213339121fa6.png)
+![fileUploadAccepted](https://user-images.githubusercontent.com/88362571/199823822-f2fffe2c-9496-47c7-a615-5db9d352028d.png)
+![fileUploadSizeError](https://user-images.githubusercontent.com/88362571/199823826-6442d86b-bb47-4c3d-8408-70e3516e26b4.png)
+![fileUploadExtensionError](https://user-images.githubusercontent.com/88362571/199823825-1f79912a-5f96-4e86-b6f1-7557b294c086.png)
+![fileUploadSucccess1](https://user-images.githubusercontent.com/88362571/199823832-0e3bec53-e06d-4e35-b356-293f6e90a857.png)
+![fileUploadSucccess](https://user-images.githubusercontent.com/88362571/199823828-0a4b8be3-5757-455b-88be-b57b9a2cce1a.png)
 
-![FileUpload](https://user-images.githubusercontent.com/87525401/198289158-6798a62c-3d3e-4235-9177-c2e23d087d3e.png)
+Delete Modal Popup
+![DeleteEventPopup1](https://user-images.githubusercontent.com/88362571/198540442-1fb64097-06cf-43ce-8450-f62158baea6f.png)
+![DeleteEventSuccess](https://user-images.githubusercontent.com/88362571/198540557-cad6b08f-7923-4a4c-8249-330cea375ad6.png)
+
 
 Error Handler
 
