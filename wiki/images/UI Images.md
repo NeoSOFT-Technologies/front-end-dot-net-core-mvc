@@ -25,15 +25,8 @@ Login
 
 ![image](https://user-images.githubusercontent.com/87525401/199921110-8c861c6e-1e8a-497a-8bfc-0a0ace18794c.png)
 ![Business](https://user-images.githubusercontent.com/87525401/199921876-d777a636-d971-4f6b-8481-c6f7821905c5.PNG)
+![ToastCategory](https://user-images.githubusercontent.com/87525401/199922279-b54a4dde-c586-4c45-8e40-56ff0c2180e1.png)
 
-
-
-![CategoryGrid](https://user-images.githubusercontent.com/88362571/199918544-8be24ff2-3a34-4ecd-90b5-30bb9bdf8871.PNG)
-
-
-![Create Category](https://user-images.githubusercontent.com/92164758/198330268-6ae9bd29-ab5f-4b04-a28d-e474e68d1e54.png)
-
-![category created](https://user-images.githubusercontent.com/92164758/198330258-b0a1ea04-fd8a-462b-8870-a6dc735d113d.png)
 
 # Event
 ![UpdateEventToaster](https://user-images.githubusercontent.com/92291258/199910208-762518bf-7305-43b4-9658-3d5b77fd78c8.png)
@@ -59,18 +52,6 @@ Fileupload
 ![FileEnable](https://user-images.githubusercontent.com/87525401/199918220-73451c92-8a32-4566-b39f-6d56e66b599e.PNG)
 ![FileSuccess](https://user-images.githubusercontent.com/87525401/199918679-201c34eb-ca88-4549-815e-12de5ed6af18.png)
 ![FileDownload](https://user-images.githubusercontent.com/87525401/199918996-37a9df0f-3810-4f3d-aef3-08e726aaff84.PNG)
-
-
-
-
-![fileUpload1](https://user-images.githubusercontent.com/88362571/199823816-f9794516-767f-4b76-958d-994949e2b9f2.png)
-![fileUpload2](https://user-images.githubusercontent.com/88362571/199823818-18decd30-2f4e-4870-a1f3-213339121fa6.png)
-![fileUploadAccepted](https://user-images.githubusercontent.com/88362571/199823822-f2fffe2c-9496-47c7-a615-5db9d352028d.png)
-![fileUploadSizeError](https://user-images.githubusercontent.com/88362571/199823826-6442d86b-bb47-4c3d-8408-70e3516e26b4.png)
-![fileUploadExtensionError](https://user-images.githubusercontent.com/88362571/199823825-1f79912a-5f96-4e86-b6f1-7557b294c086.png)
-![fileUploadSucccess1](https://user-images.githubusercontent.com/88362571/199823832-0e3bec53-e06d-4e35-b356-293f6e90a857.png)
-![fileUploadSucccess](https://user-images.githubusercontent.com/88362571/199823828-0a4b8be3-5757-455b-88be-b57b9a2cce1a.png)
-
 
 
 FileExport with Datatable
