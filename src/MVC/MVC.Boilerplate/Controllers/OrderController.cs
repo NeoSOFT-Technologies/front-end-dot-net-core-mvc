@@ -40,8 +40,6 @@ namespace MVC.Boilerplate.Controllers
         [HttpGet]
         public async Task<IActionResult> LoadTable(DataTablesResult tableParams)
         {
-            var searchBy = tableParams.Search?.Value;
-
             var orderCriteria = string.Empty;
             var orderAscendingDirection = true;
 
@@ -56,32 +54,25 @@ namespace MVC.Boilerplate.Controllers
                 orderAscendingDirection = true;
             }
 
-            int page = 1;
-            int pageSize = 10;
+            int page = (tableParams.Start/tableParams.Length) + 1;
+            int pageSize = tableParams.Length;
             var orderPlacedDate = HttpContext.Session.GetString("_orderDate");
 
             var result = await _orderService.GetOrderList(orderPlacedDate, page, pageSize);
             var orderList = result.Data;
 
-            if (!string.IsNullOrEmpty(searchBy))
-            {
-                orderList = orderList.Where(r => r.Id != null && r.Id.ToString().Contains(searchBy) ||
-                                                 r.OrderTotal != null && r.OrderTotal.ToString().Contains(searchBy) ||
-                                                 r.OrderPlaced != null && r.OrderPlaced.ToString().Contains(searchBy)).ToList();
-
-            }
-
-
             orderList = orderAscendingDirection ? orderList.AsQueryable().OrderByDynamic(orderCriteria, DtOrderDir.Asc).ToList() : orderList.AsQueryable().OrderByDynamic(orderCriteria, DtOrderDir.Desc).ToList();
-            var filteredResultsCount = orderList.Count();
+            //var filteredResultsCount = orderList.Count();
+            var filteredResultsCount = result.TotalCount;
             var totalResultsCount = result.TotalCount;
+
             return Json(new
             {
                 draw = tableParams.Draw,
                 recordsTotal = totalResultsCount,
                 recordsFiltered = filteredResultsCount,
                 data = orderList
-                    .Skip(tableParams.Start)
+                    .Skip(0)
                     .Take(tableParams.Length)
                     .ToList()
             });
